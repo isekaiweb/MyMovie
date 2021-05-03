@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/Theme.MyMovie"
+    android:background="@color/white"
+    tools:context=".ui.fragments.ListFragment">
+
+
+    <TextView
+        android:id="@+id/tvTitleFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:gravity="center"
+        android:paddingHorizontal="10dp"
+        android:text="@string/app_name"
+        android:textAllCaps="true"
+        android:paddingVertical="10dp"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="@color/black"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabMaxWidth="0dp"
+        app:tabIndicatorGravity="bottom"
+        app:tabIndicatorAnimationMode="elastic"
+        app:tabIndicatorHeight="4dp"
+        app:tabIndicatorAnimationDuration="@integer/material_motion_duration_short_1"
+        app:tabIndicatorColor="@color/secondary_black"
+        app:tabIndicatorFullWidth="true"
+        app:tabRippleColor="@color/secondary_black"
+        app:tabIconTint="@color/white"
+        />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</LinearLayout>
