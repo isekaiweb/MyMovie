@@ -2,6 +2,7 @@ package submission.dicoding.jetpack.mymovie.ui.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.navigation.fragment.navArgs
@@ -10,8 +11,11 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import dagger.hilt.android.AndroidEntryPoint
 import submission.dicoding.jetpack.mymovie.R
 import submission.dicoding.jetpack.mymovie.databinding.FragmentDetailBinding
-import submission.dicoding.jetpack.mymovie.models.MovieResponse
+import submission.dicoding.jetpack.mymovie.models.Movie
 import submission.dicoding.jetpack.mymovie.ui.viewmodels.DetailViewModel
+import submission.dicoding.jetpack.mymovie.util.Constants.BASE_URL_IMG
+import submission.dicoding.jetpack.mymovie.util.EventObserver
+import submission.dicoding.jetpack.mymovie.util.Status
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -32,27 +36,61 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         subscribeToObserver()
     }
 
-    private fun subscribeToObserver() {
-        viewModel.setMovieDetail(args.id)
+    private fun setupData() {
+        val path = args.path
+        path.let {
+            viewModel.getDetailMovie(it[0], it[1].toInt())
+        }
 
-        viewModel.movieDetail.observe(viewLifecycleOwner, { movie ->
-            setupUI(movie)
-        })
-    }
-
-
-    private fun setupUI(movie: MovieResponse) {
         binding.apply {
-            with(movie) {
-                glide.load(poster_url).transition(DrawableTransitionOptions.withCrossFade())
-                    .into(ivPoster)
-                tvTitle.text = title
-                tvOverview.text = overview
-                tvDate.text = date_publish
+            layoutRefresh.setOnRefreshListener {
+                subscribeToObserver()
+            }
+
+            ibRefresh.setOnClickListener {
+                subscribeToObserver()
             }
         }
     }
 
+    private fun subscribeToObserver() {
+        val layoutRefresh = binding.layoutRefresh
+        val ibRefresh = binding.ibRefresh
+        ibRefresh.isVisible = false
+        setupData()
+        var loading = false
+        viewModel.movie.observe(viewLifecycleOwner, EventObserver { response ->
+            response.apply {
+                when (status) {
+                    Status.SUCCESS -> {
+                        data?.let { movie -> setupUI(movie) }
+                    }
+                    Status.ERROR -> {
+                        ibRefresh.isVisible = true
+                    }
+                    Status.LOADING -> {
+                        loading = true
+                    }
+                }
+            }
+        })
+        layoutRefresh.isRefreshing = loading
+    }
+
+
+    private fun setupUI(movie: Movie) {
+
+        binding.apply {
+            with(movie) {
+                glide.load("${BASE_URL_IMG}${poster_path}")
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .into(ivPoster)
+                tvTitle.text = name ?: title
+                tvOverview.text = overview
+                tvDate.text = release_date ?: first_air_date
+            }
+        }
+    }
 
     override fun onDestroy() {
         _binding = null

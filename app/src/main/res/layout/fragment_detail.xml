@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutRefresh"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,58 +8,82 @@
     android:background="@color/white"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/ivPoster"
-            android:layout_width="match_parent"
-            android:layout_height="300sp"
-            android:background="@color/secondary_black"
-            android:contentDescription="@string/poster"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:padding="10dp">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+           <ImageView
+               android:id="@+id/ivPoster"
+               android:layout_width="match_parent"
+               android:layout_height="300sp"
+               android:background="@color/secondary_black"
+               android:contentDescription="@string/poster"
+               android:scaleType="centerCrop"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               tools:src="@tools:sample/avatars" />
 
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivPoster"
-            tools:text="Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train" />
+           <TextView
+               android:id="@+id/tvTitle"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="10dp"
 
-        <TextView
-            android:id="@+id/tvDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
-            tools:text="16 October 2020" />
+               android:textColor="@color/black"
+               android:textSize="25sp"
+               android:textStyle="bold"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/ivPoster"
+               tools:text="@string/dummyTitle" />
 
-        <TextView
-            android:id="@+id/tvOverview"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvDate"
-            tools:text="Tanjiro Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Kyojuro Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!" />
+           <TextView
+               android:id="@+id/tvDate"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:textSize="20sp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+               tools:text="@string/dummyDate" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+           <TextView
+               android:id="@+id/tvOverview"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:textColor="@color/black"
+               android:textSize="22sp"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/tvDate"
+               tools:text="@string/dummyOverview" />
 
-</ScrollView>
+           <ImageButton
+               android:id="@+id/ibRefresh"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:background="@drawable/ripple_for_image_btn_50dp"
+               android:src="@drawable/ic_reload_50dp"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="0.498"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="@+id/guideline2"
+               android:contentDescription="@string/reload" />
+
+           <androidx.constraintlayout.widget.Guideline
+               android:id="@+id/guideline2"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               app:layout_constraintGuide_begin="100dp" />
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </ScrollView>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

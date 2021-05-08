@@ -1,7 +1,5 @@
 package submission.dicoding.jetpack.mymovie.repo
 
-import submission.dicoding.jetpack.mymovie.models.MovieResponse
-
 class FakeRepo : MovieRepo {
 
     private val movie = FakeData.movie()

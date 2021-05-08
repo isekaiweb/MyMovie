@@ -2,39 +2,24 @@ package submission.dicoding.jetpack.mymovie.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import submission.dicoding.jetpack.mymovie.databinding.ListModelBinding
-import submission.dicoding.jetpack.mymovie.models.MovieResponse
+import submission.dicoding.jetpack.mymovie.models.Movie
+import submission.dicoding.jetpack.mymovie.util.Constants.BASE_URL_IMG
 import javax.inject.Inject
+
 
 class ListAdapter @Inject constructor(
     val glide: RequestManager
-) : RecyclerView.Adapter<ListAdapter.ListViewHolder>() {
+) : PagingDataAdapter<Movie, ListAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
-    private val differCallback = object : DiffUtil.ItemCallback<MovieResponse>() {
-        override fun areItemsTheSame(oldItem: MovieResponse, newItem: MovieResponse): Boolean {
-            return oldItem.id == newItem.id
-        }
+    private var onItemClickListener: ((Movie) -> Unit)? = null
 
-        override fun areContentsTheSame(oldItem: MovieResponse, newItem: MovieResponse): Boolean {
-            return oldItem.hashCode() == newItem.hashCode()
-        }
-    }
-
-    private val differ = AsyncListDiffer(this, differCallback)
-
-    var movie: List<MovieResponse>
-        get() = differ.currentList
-        set(value) = differ.submitList(value)
-
-
-    private var onItemClickListener: ((MovieResponse) -> Unit)? = null
-
-    fun setOnItemClickListener(listener: (MovieResponse) -> Unit) {
+    fun setOnItemClickListener(listener: (Movie) -> Unit) {
         onItemClickListener = listener
     }
 
@@ -42,12 +27,13 @@ class ListAdapter @Inject constructor(
     inner class ListViewHolder(private val binding: ListModelBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movie: MovieResponse) {
+        fun bind(movie: Movie) {
             binding.apply {
                 movie.apply {
-                    glide.load(poster_url).transition(DrawableTransitionOptions.withCrossFade())
+                    glide.load("${BASE_URL_IMG}${poster_path}")
+                        .transition(DrawableTransitionOptions.withCrossFade())
                         .into(ivPoster)
-                    tvTitle.text = title
+                    tvTitle.text = title ?: name
                     tvOverview.text = overview
 
                     itemView.setOnClickListener {
@@ -70,8 +56,21 @@ class ListAdapter @Inject constructor(
             )
         )
 
-    override fun onBindViewHolder(holder: ListViewHolder, position: Int) =
-        holder.bind(movie[position])
+    override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
+        val currentItem = getItem(position)
+        if (currentItem != null) {
+            holder.bind(currentItem)
+        }
+    }
 
-    override fun getItemCount(): Int = movie.size
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Movie>() {
+            override fun areItemsTheSame(old: Movie, aNew: Movie): Boolean =
+                old.id == aNew.id
+
+            override fun areContentsTheSame(old: Movie, aNew: Movie): Boolean =
+                old == aNew
+        }
+    }
 }

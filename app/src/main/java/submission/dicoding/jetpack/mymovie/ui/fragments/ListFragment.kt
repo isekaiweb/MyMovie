@@ -1,25 +1,30 @@
 package submission.dicoding.jetpack.mymovie.ui.fragments
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import submission.dicoding.jetpack.mymovie.R
 import submission.dicoding.jetpack.mymovie.databinding.FragmentListBinding
 import submission.dicoding.jetpack.mymovie.ui.adapters.ListAdapter
+import submission.dicoding.jetpack.mymovie.ui.adapters.MovieLoadStateAdapter
 import submission.dicoding.jetpack.mymovie.ui.viewmodels.ListViewModel
 import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class ListFragment : Fragment(R.layout.fragment_list) {
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
-
-
-    @Inject
-    lateinit var viewModel: ListViewModel
+    private val viewModel: ListViewModel by viewModels()
 
     @Inject
     lateinit var listAdapter: ListAdapter
@@ -30,34 +35,71 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         _binding = FragmentListBinding.bind(view)
 
         binding.rvList.apply {
-            adapter = listAdapter
+            adapter = listAdapter.withLoadStateFooter(
+                MovieLoadStateAdapter { listAdapter.retry() }
+            )
             layoutManager = LinearLayoutManager(requireContext())
         }
         setData()
-        subscribeToObservers()
-        setupMoveToDetail()
+        setupUI()
     }
 
+
+    private fun setupUI() {
+        binding.apply {
+            listAdapter.addLoadStateListener { state ->
+                rvList.isVisible = state.source.refresh is LoadState.NotLoading
+                createToastError(state.source.refresh is LoadState.Error)
+                ibRefresh.isVisible = state.source.refresh is LoadState.Error
+                layoutRefresh.isRefreshing =
+                    state.source.refresh is LoadState.Loading
+            }
+
+            layoutRefresh.setColorSchemeColors(
+                ContextCompat.getColor(requireContext(), R.color.black)
+            )
+
+            layoutRefresh.setOnRefreshListener {
+                setData()
+            }
+
+            ibRefresh.setOnClickListener {
+                setData()
+            }
+        }
+    }
+
+    private fun createToastError(state: Boolean) {
+        val toast = Toast.makeText(requireContext(), "lost connection", Toast.LENGTH_LONG)
+        toast.setGravity(Gravity.CENTER, 0, 0)
+        if (state) toast.show()
+        else return
+    }
 
     private fun setData() {
-        arguments?.getInt(PAGE_TYPE)?.let {
-            viewModel.setData(it)
+        val pos = arguments?.getInt(PAGE_TYPE)
+        val mediaType = requireActivity().resources.getStringArray(R.array.media_type)
+        val category = requireActivity().resources.getStringArray(R.array.category)
+
+        if (pos != null) {
+            subscribeToViewModel(mediaType[pos], category[pos])
+            setupMoveToDetail(mediaType[pos])
         }
-
     }
 
-    private fun subscribeToObservers() {
-        viewModel.currTab.observe(viewLifecycleOwner, { movie ->
-            listAdapter.movie = movie
-        })
+    private fun subscribeToViewModel(mediaType: String, category: String) {
+        viewModel.getMovie(mediaType, category)?.observe(viewLifecycleOwner) {
+            listAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+        }
     }
 
 
-    private fun setupMoveToDetail() {
+    private fun setupMoveToDetail(mediaType: String) {
         listAdapter.setOnItemClickListener { movie ->
+            val bundle = arrayOf(mediaType, movie.id.toString())
             findNavController().navigate(
                 MainFragmentDirections.actionMainFragmentToDetailFragment(
-                    movie.id
+                    bundle
                 )
             )
         }

@@ -15,8 +15,8 @@
         android:name="submission.dicoding.jetpack.mymovie.ui.fragments.DetailFragment"
         android:label="DetailFragment">
         <argument
-            android:name="id"
-            app:argType="integer" />
+            android:name="path"
+            app:argType="string[]" />
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
