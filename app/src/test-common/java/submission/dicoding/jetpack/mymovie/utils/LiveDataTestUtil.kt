@@ -1,19 +1,4 @@
-/*
- * Copyright (C) 2019 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package submission.dicoding.jetpack.mymovie
+package submission.dicoding.jetpack.mymovie.utils
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
@@ -27,9 +12,12 @@ import java.util.concurrent.TimeoutException
  *
  * Use this extension from host-side (JVM) tests. It's recommended to use it alongside
  * `InstantTaskExecutorRule` or a similar mechanism to execute tasks synchronously.
+ *
+ * Creates a Kotlin extension function called getOrAwaitValue which adds an observer,
+ * gets the LiveData value, and then cleans up the observer.
  */
 @VisibleForTesting(otherwise = VisibleForTesting.NONE)
-fun <T> LiveData<T>.getOrAwaitValueTest(
+fun <T> LiveData<T>.getOrAwaitValue(
     time: Long = 2,
     timeUnit: TimeUnit = TimeUnit.SECONDS,
     afterObserve: () -> Unit = {}
@@ -40,9 +28,10 @@ fun <T> LiveData<T>.getOrAwaitValueTest(
         override fun onChanged(o: T?) {
             data = o
             latch.countDown()
-            this@getOrAwaitValueTest.removeObserver(this)
+            this@getOrAwaitValue.removeObserver(this)
         }
     }
+    // Observe the LiveData forever
     this.observeForever(observer)
 
     try {
@@ -54,6 +43,7 @@ fun <T> LiveData<T>.getOrAwaitValueTest(
         }
 
     } finally {
+        // Whatever happens, don't forget to remove the observer!
         this.removeObserver(observer)
     }
 

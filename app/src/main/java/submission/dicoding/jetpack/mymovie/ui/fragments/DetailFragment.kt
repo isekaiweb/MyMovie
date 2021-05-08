@@ -15,6 +15,7 @@ import submission.dicoding.jetpack.mymovie.models.Movie
 import submission.dicoding.jetpack.mymovie.ui.viewmodels.DetailViewModel
 import submission.dicoding.jetpack.mymovie.util.Constants.BASE_URL_IMG
 import submission.dicoding.jetpack.mymovie.util.EventObserver
+import submission.dicoding.jetpack.mymovie.util.Function.createToastNetworkError
 import submission.dicoding.jetpack.mymovie.util.Status
 import javax.inject.Inject
 
@@ -67,6 +68,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                     }
                     Status.ERROR -> {
                         ibRefresh.isVisible = true
+                        createToastNetworkError(true, requireContext())
                     }
                     Status.LOADING -> {
                         loading = true

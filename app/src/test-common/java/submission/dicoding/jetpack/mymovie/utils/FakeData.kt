@@ -1,4 +1,4 @@
-package submission.dicoding.jetpack.mymovie.repo
+package submission.dicoding.jetpack.mymovie.utils
 
 import submission.dicoding.jetpack.mymovie.models.Movie
 

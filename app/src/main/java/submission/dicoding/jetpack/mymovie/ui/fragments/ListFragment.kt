@@ -1,9 +1,7 @@
 package submission.dicoding.jetpack.mymovie.ui.fragments
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -17,6 +15,7 @@ import submission.dicoding.jetpack.mymovie.databinding.FragmentListBinding
 import submission.dicoding.jetpack.mymovie.ui.adapters.ListAdapter
 import submission.dicoding.jetpack.mymovie.ui.adapters.MovieLoadStateAdapter
 import submission.dicoding.jetpack.mymovie.ui.viewmodels.ListViewModel
+import submission.dicoding.jetpack.mymovie.util.Function.createToastNetworkError
 import javax.inject.Inject
 
 
@@ -49,7 +48,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         binding.apply {
             listAdapter.addLoadStateListener { state ->
                 rvList.isVisible = state.source.refresh is LoadState.NotLoading
-                createToastError(state.source.refresh is LoadState.Error)
+                createToastNetworkError(state.source.refresh is LoadState.Error, requireContext())
                 ibRefresh.isVisible = state.source.refresh is LoadState.Error
                 layoutRefresh.isRefreshing =
                     state.source.refresh is LoadState.Loading
@@ -69,12 +68,6 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         }
     }
 
-    private fun createToastError(state: Boolean) {
-        val toast = Toast.makeText(requireContext(), "lost connection", Toast.LENGTH_LONG)
-        toast.setGravity(Gravity.CENTER, 0, 0)
-        if (state) toast.show()
-        else return
-    }
 
     private fun setData() {
         val pos = arguments?.getInt(PAGE_TYPE)

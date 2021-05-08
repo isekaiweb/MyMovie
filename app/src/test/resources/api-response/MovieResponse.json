@@ -1,0 +1,410 @@
+{
+  "dates": {
+    "maximum": "2021-05-13",
+    "minimum": "2021-03-26"
+  },
+  "page": 1,
+  "results": [
+    {
+      "adult": false,
+      "backdrop_path": "/9yBVqNruk6Ykrwc32qrK2TIE5xw.jpg",
+      "genre_ids": [
+        28,
+        14,
+        12,
+        878
+      ],
+      "id": 460465,
+      "original_language": "en",
+      "original_title": "Mortal Kombat",
+      "overview": "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+      "popularity": 4870.197,
+      "poster_path": "/xGuOF1T3WmPsAcQEQJfnG7Ud9f8.jpg",
+      "release_date": "2021-04-07",
+      "title": "Mortal Kombat",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 2145
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/inJjDhCjfhh3RtrJWBmmDqeuSYC.jpg",
+      "genre_ids": [
+        878,
+        28,
+        18
+      ],
+      "id": 399566,
+      "original_language": "en",
+      "original_title": "Godzilla vs. Kong",
+      "overview": "In a time when monsters walk the Earth, humanity’s fight for its future sets Godzilla and Kong on a collision course that will see the two most powerful forces of nature on the planet collide in a spectacular battle for the ages.",
+      "popularity": 2341.554,
+      "poster_path": "/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg",
+      "release_date": "2021-03-24",
+      "title": "Godzilla vs. Kong",
+      "video": false,
+      "vote_average": 8.1,
+      "vote_count": 5301
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/mYM8x2Atv4MaLulaV0KVJWI1Djv.jpg",
+      "genre_ids": [
+        28,
+        80,
+        53
+      ],
+      "id": 804435,
+      "original_language": "en",
+      "original_title": "Vanquish",
+      "overview": "Victoria is a young mother trying to put her dark past as a Russian drug courier behind her, but retired cop Damon forces Victoria to do his bidding by holding her daughter hostage. Now, Victoria must use guns, guts and a motorcycle to take out a series of violent gangsters—or she may never see her child again.",
+      "popularity": 1758.352,
+      "poster_path": "/AoWY1gkcNzabh229Icboa1Ff0BM.jpg",
+      "release_date": "2021-04-16",
+      "title": "Vanquish",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 62
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6zbKgwgaaCyyBXE4Sun4oWQfQmi.jpg",
+      "genre_ids": [
+        28,
+        53,
+        80
+      ],
+      "id": 615457,
+      "original_language": "en",
+      "original_title": "Nobody",
+      "overview": "Hutch Mansell, a suburban dad, overlooked husband, nothing neighbor — a \"nobody.\" When two thieves break into his home one night, Hutch's unknown long-simmering rage is ignited and propels him on a brutal path that will uncover dark secrets he fought to leave behind.",
+      "popularity": 1971.546,
+      "poster_path": "/oBgWY00bEFeZ9N25wWVyuQddbAo.jpg",
+      "release_date": "2021-03-26",
+      "title": "Nobody",
+      "video": false,
+      "vote_average": 8.5,
+      "vote_count": 1204
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xPpXYnCWfjkt3zzE0dpCNME1pXF.jpg",
+      "genre_ids": [
+        16,
+        28,
+        12,
+        14,
+        18
+      ],
+      "id": 635302,
+      "original_language": "ja",
+      "original_title": "劇場版「鬼滅の刃」無限列車編",
+      "overview": "Tanjirō Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Kyōjurō Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!",
+      "popularity": 1621.079,
+      "poster_path": "/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
+      "release_date": "2020-10-16",
+      "title": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "video": false,
+      "vote_average": 8.4,
+      "vote_count": 843
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/zDq2pwPyt4xwSFHKUoNN2LohDWj.jpg",
+      "genre_ids": [
+        27
+      ],
+      "id": 632357,
+      "original_language": "en",
+      "original_title": "The Unholy",
+      "overview": "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
+      "popularity": 1576.588,
+      "poster_path": "/b4gYVcl8pParX8AjkN90iQrWrWO.jpg",
+      "release_date": "2021-03-31",
+      "title": "The Unholy",
+      "video": false,
+      "vote_average": 5.7,
+      "vote_count": 71
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/5Zv5KmgZzdIvXz2KC3n0MyecSNL.jpg",
+      "genre_ids": [
+        28,
+        53,
+        80
+      ],
+      "id": 634528,
+      "original_language": "en",
+      "original_title": "The Marksman",
+      "overview": "Jim Hanson’s quiet life is suddenly disturbed by two people crossing the US/Mexico border – a woman and her young son – desperate to flee a Mexican cartel. After a shootout leaves the mother dead, Jim becomes the boy’s reluctant defender. He embraces his role as Miguel’s protector and will stop at nothing to get him to safety, as they go on the run from the relentless assassins.",
+      "popularity": 1151.528,
+      "poster_path": "/6vcDalR50RWa309vBH1NLmG2rjQ.jpg",
+      "release_date": "2021-01-15",
+      "title": "The Marksman",
+      "video": false,
+      "vote_average": 7.5,
+      "vote_count": 383
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7prYzufdIOy1KCTZKVWpjBFqqNr.jpg",
+      "genre_ids": [
+        16,
+        12,
+        14,
+        10751,
+        28
+      ],
+      "id": 527774,
+      "original_language": "en",
+      "original_title": "Raya and the Last Dragon",
+      "overview": "Long ago, in the fantasy world of Kumandra, humans and dragons lived together in harmony. But when an evil force threatened the land, the dragons sacrificed themselves to save humanity. Now, 500 years later, that same evil has returned and it’s up to a lone warrior, Raya, to track down the legendary last dragon to restore the fractured land and its divided people.",
+      "popularity": 1176.897,
+      "poster_path": "/lPsD10PP4rgUGiGR4CCXA6iY0QQ.jpg",
+      "release_date": "2021-03-03",
+      "title": "Raya and the Last Dragon",
+      "video": false,
+      "vote_average": 8.2,
+      "vote_count": 2665
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/ovggmAOu1IbPGTQE8lg4lBasNC7.jpg",
+      "genre_ids": [
+        878,
+        28,
+        12,
+        53
+      ],
+      "id": 412656,
+      "original_language": "en",
+      "original_title": "Chaos Walking",
+      "overview": "Two unlikely companions embark on a perilous adventure through the badlands of an unexplored planet as they try to escape a dangerous and disorienting reality, where all inner thoughts are seen and heard by everyone.",
+      "popularity": 828.754,
+      "poster_path": "/9kg73Mg8WJKlB9Y2SAJzeDKAnuB.jpg",
+      "release_date": "2021-02-24",
+      "title": "Chaos Walking",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 523
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/c7dFSqZQYqNNJVpacpIGZe3gkLW.jpg",
+      "genre_ids": [
+        16,
+        35,
+        14
+      ],
+      "id": 813258,
+      "original_language": "en",
+      "original_title": "Monster Pets: A Hotel Transylvania Short",
+      "overview": "Drac tries out some new monster pets to help occupy Tinkles for playtime.",
+      "popularity": 1125.663,
+      "poster_path": "/dkokENeY5Ka30BFgWAqk14mbnGs.jpg",
+      "release_date": "2021-04-02",
+      "title": "Monster Pets: A Hotel Transylvania Short",
+      "video": false,
+      "vote_average": 7.7,
+      "vote_count": 73
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/z8TvnEVRenMSTemxYZwLGqFofgF.jpg",
+      "genre_ids": [
+        14,
+        28,
+        12
+      ],
+      "id": 458576,
+      "original_language": "en",
+      "original_title": "Monster Hunter",
+      "overview": "A portal transports Cpt. Artemis and an elite unit of soldiers to a strange world where powerful monsters rule with deadly ferocity. Faced with relentless danger, the team encounters a mysterious hunter who may be their only hope to find a way home.",
+      "popularity": 704.828,
+      "poster_path": "/1UCOF11QCw8kcqvce8LKOO6pimh.jpg",
+      "release_date": "2020-12-03",
+      "title": "Monster Hunter",
+      "video": false,
+      "vote_average": 7.1,
+      "vote_count": 1591
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/9ns9463dwOeo1CK1JU2wirL5Yi1.jpg",
+      "genre_ids": [
+        35,
+        10751,
+        16
+      ],
+      "id": 587807,
+      "original_language": "en",
+      "original_title": "Tom & Jerry",
+      "overview": "Tom the cat and Jerry the mouse get kicked out of their home and relocate to a fancy New York hotel, where a scrappy employee named Kayla will lose her job if she can’t evict Jerry before a high-class wedding at the hotel. Her solution? Hiring Tom to get rid of the pesky mouse.",
+      "popularity": 649.694,
+      "poster_path": "/yMoMlJo2msoVwmuf6k1C78MrB3H.jpg",
+      "release_date": "2021-02-11",
+      "title": "Tom & Jerry",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 1306
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/h9DIlghaiTxbQbt1FIwKNbQvEL.jpg",
+      "genre_ids": [
+        28,
+        12,
+        53
+      ],
+      "id": 581387,
+      "original_language": "ko",
+      "original_title": "백두산",
+      "overview": "A group of unlikely heroes from across the Korean peninsula try to save the day after a volcano erupts on the mythical and majestic Baekdu Mountain.",
+      "popularity": 528.564,
+      "poster_path": "/zoeKREZ2IdAUnXISYCS0E6H5BVh.jpg",
+      "release_date": "2019-12-19",
+      "title": "Ashfall",
+      "video": false,
+      "vote_average": 6.5,
+      "vote_count": 239
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jnq4fV53Px9HvUZD2bQIxtGSwS7.jpg",
+      "genre_ids": [
+        80,
+        18,
+        28
+      ],
+      "id": 644083,
+      "original_language": "en",
+      "original_title": "Twist",
+      "overview": "A Dickens classic brought thrillingly up to date in the teeming heartland of modern London, where a group of street smart young hustlers plan the heist of the century for the ultimate payday.",
+      "popularity": 526.087,
+      "poster_path": "/h3oT6lZcYC2khtZnzHBgqthj5W.jpg",
+      "release_date": "2021-01-22",
+      "title": "Twist",
+      "video": false,
+      "vote_average": 6.9,
+      "vote_count": 53
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cjaOSjsjV6cl3uXdJqimktT880L.jpg",
+      "genre_ids": [
+        10751,
+        14,
+        16,
+        35
+      ],
+      "id": 529203,
+      "original_language": "en",
+      "original_title": "The Croods: A New Age",
+      "overview": "Searching for a safer habitat, the prehistoric Crood family discovers an idyllic, walled-in paradise that meets all of its needs. Unfortunately, they must also learn to live with the Bettermans -- a family that's a couple of steps above the Croods on the evolutionary ladder. As tensions between the new neighbors start to rise, a new threat soon propels both clans on an epic adventure that forces them to embrace their differences, draw strength from one another, and survive together.",
+      "popularity": 456.446,
+      "poster_path": "/tbVZ3Sq88dZaCANlUcewQuHQOaE.jpg",
+      "release_date": "2020-11-25",
+      "title": "The Croods: A New Age",
+      "video": false,
+      "vote_average": 7.5,
+      "vote_count": 2042
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/njxvIJjQJZJi4ihkh95pidxOJZY.jpg",
+      "genre_ids": [
+        27,
+        35
+      ],
+      "id": 647302,
+      "original_language": "en",
+      "original_title": "Benny Loves You",
+      "overview": "Jack, a man desperate to improve his life throws away his beloved childhood plush, Benny. It’s a move that has disastrous consequences when Benny springs to life with deadly intentions!",
+      "popularity": 655.951,
+      "poster_path": "/mQ8vALvqA0z0qglG3gI6xpVcslo.jpg",
+      "release_date": "2021-05-07",
+      "title": "Benny Loves You",
+      "video": false,
+      "vote_average": 7,
+      "vote_count": 3
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/nz8xWrTKZzA5A7FgxaM4kfAoO1W.jpg",
+      "genre_ids": [
+        878,
+        28
+      ],
+      "id": 651571,
+      "original_language": "en",
+      "original_title": "Breach",
+      "overview": "A hardened mechanic must stay awake and maintain an interstellar ark fleeing the dying planet Earth with a few thousand lucky souls on board... the last of humanity. Unfortunately, humans are not the only passengers. A shapeshifting alien creature has taken residence, its only goal is to kill as many people as possible. The crew must think quickly to stop this menace before it destroys mankind.",
+      "popularity": 352.488,
+      "poster_path": "/13B6onhL6FzSN2KaNeQeMML05pS.jpg",
+      "release_date": "2020-12-17",
+      "title": "Breach",
+      "video": false,
+      "vote_average": 4.5,
+      "vote_count": 390
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/a9zFUuxzChmAlIybVge9IZt1hH0.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 578908,
+      "original_language": "en",
+      "original_title": "Bad Trip",
+      "overview": "Two pals embark on a road trip full of funny pranks that pull real people into mayhem.",
+      "popularity": 372.06,
+      "poster_path": "/A1Gy5HX3DKGaNW1Ay30NTIVJqJ6.jpg",
+      "release_date": "2021-03-26",
+      "title": "Bad Trip",
+      "video": false,
+      "vote_average": 5.9,
+      "vote_count": 195
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2l8Mcy6MD8MoqYmQIuGcKz63Sra.jpg",
+      "genre_ids": [
+        18
+      ],
+      "id": 660943,
+      "original_language": "es",
+      "original_title": "El olvido que seremos",
+      "overview": "Portrays the life of Héctor Abad Gómez, a prominent doctor and human rights activist in the polarized, violent Medellin of the 70s. A family man worried not only for his own children but those of the underprivileged classes as well, his home was imbued with vitality and creativity, the result of an education based on tolerance and love. Nothing could foretell that a terrible cancer would take the life of one of his beloved daughters. Driven by sadness and rage, Héctor devoted himself to the social and political causes of the time. But Medellin's intolerant society would harass him until he was finally silenced.",
+      "popularity": 308.047,
+      "poster_path": "/cKCVRr3Hvy4MoV2R0tvS31C9wql.jpg",
+      "release_date": "2020-08-22",
+      "title": "Forgotten We’ll Be",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 5
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/54yrEMg3KeTbpr3kYpIGU04a9D5.jpg",
+      "genre_ids": [
+        28,
+        27,
+        9648
+      ],
+      "id": 722780,
+      "original_language": "en",
+      "original_title": "For the Sake of Vicious",
+      "overview": "An overworked nurse returns home to find a maniac hiding out with a bruised and beaten hostage. When an unexpected wave of violent intruders descend upon her home, it becomes a fight for survival.",
+      "popularity": 440.447,
+      "poster_path": "/iqO2sTFqm6XwEXmlLxKDX75RPjY.jpg",
+      "release_date": "2021-04-16",
+      "title": "For the Sake of Vicious",
+      "video": false,
+      "vote_average": 3,
+      "vote_count": 1
+    }
+  ],
+  "total_pages": 45,
+  "total_results": 885
+}
