@@ -53,6 +53,10 @@ class ListViewModelTest {
         viewModel = ListViewModel(repoImpl)
     }
 
+    /**
+     * Test, observe get list movies with success resource and validate if data would return correctly
+     * */
+
 
     @Test
     fun `get list movies observe handling success resource`() = runBlockingTest {
@@ -79,6 +83,10 @@ class ListViewModelTest {
         )
 
     }
+
+    /**
+     * Test, observe get list movies with failure resource and validate if data wouldn't return correctly
+     * */
 
     @Test
     fun `get list movies observe handling error resource`() = runBlockingTest {

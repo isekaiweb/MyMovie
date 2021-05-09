@@ -42,6 +42,10 @@ class MovieRepoImplTest {
         repoImpl = MovieRepoImpl(remoteDataSource)
     }
 
+    /**
+     * Test, to get list movies from services with valid response
+     * */
+
     @Test
     fun `get list movies success`() = runBlockingTest {
         val movies = MovieResponse(listOf(FakeData.createMovie()))
@@ -53,6 +57,9 @@ class MovieRepoImplTest {
         assertThat(value).isEqualTo(movies)
     }
 
+    /**
+     * Test, to get list movies from services with invalid response
+     * */
     @Test
     fun `get list movies failed`() = runBlockingTest {
         val expect: Resource<MovieResponse> = Resource.error(NETWORK_FAILURE, null)
@@ -65,6 +72,9 @@ class MovieRepoImplTest {
     }
 
 
+    /**
+     * Test, to get detail movie from services with valid response
+     * */
     @Test
     fun `get movie detail success`() = runBlockingTest {
         val movie = FakeData.createMovie()
@@ -77,6 +87,9 @@ class MovieRepoImplTest {
     }
 
 
+    /**
+     * Test, to get detail movie from services with invalid response
+     * */
     @Test
     fun `get movie detail failed`() = runBlockingTest {
         val expect: Resource<Movie> = Resource.error(CONVERSION_ERROR, null)

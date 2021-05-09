@@ -26,9 +26,13 @@ class MyMovieServicesTest : ApiAbstract<MyMovieServices>() {
         service = createService(MyMovieServices::class.java)
     }
 
+    /**
+     * Test, to get list movies can fetch from network in filled to movie response
+     * */
+
     @Throws(IOException::class)
     @Test
-    fun `get movie from network and verify data`() = runBlocking {
+    fun `get list movies from network and verify data`() = runBlocking {
         enqueueResponse("/MovieResponse.json")
         val response = service.getListMovies("movie", "now_playing", 1)
         val responseBody = requireNotNull(response.body()?.results)
@@ -41,6 +45,11 @@ class MyMovieServicesTest : ApiAbstract<MyMovieServices>() {
         assertThat(value.overview).isEqualTo("Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.")
         assertThat(value.release_date).isEqualTo("2021-04-07")
     }
+
+
+    /**
+     * Test, to  get detail movie can fetch from network in filled to movie
+     * */
 
     @Throws(IOException::class)
     @Test

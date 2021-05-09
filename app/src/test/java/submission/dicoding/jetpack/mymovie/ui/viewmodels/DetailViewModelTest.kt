@@ -39,6 +39,10 @@ class DetailViewModelTest {
         viewModel = DetailViewModel(repoImpl)
     }
 
+    /**
+     * Test, observe get detail movie with success resource and verify if data is correctly
+     * */
+
     @Test
     fun `get detail movie observe handling success resource`() = runBlockingTest {
         val movie = FakeData.createMovie()
@@ -51,6 +55,9 @@ class DetailViewModelTest {
         assertThat(value?.data).isEqualTo(movie)
     }
 
+    /**
+     * Test, observe get detail movie with failure resource and verify if data is empty
+     * */
     @Test
     fun `get detail movie observe handling error resource`() = runBlockingTest {
         val expect: Resource<Movie> = Resource.error(NETWORK_FAILURE, null)
