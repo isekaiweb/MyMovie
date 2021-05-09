@@ -81,9 +81,9 @@ class ListFragment : Fragment(R.layout.fragment_list) {
     }
 
     private fun subscribeToViewModel(mediaType: String, category: String) {
-        viewModel.getMovie(mediaType, category)?.observe(viewLifecycleOwner) {
+        viewModel.getListMovies(mediaType, category).observe(viewLifecycleOwner, {
             listAdapter.submitData(viewLifecycleOwner.lifecycle, it)
-        }
+        })
     }
 
 

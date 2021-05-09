@@ -10,11 +10,11 @@ import submission.dicoding.jetpack.mymovie.models.MovieResponse
 
 interface MyMovieServices {
     @GET("{media_type}/{category}?api_key=$API_KEY")
-    suspend fun getMovies(
+    suspend fun getListMovies(
         @Path("media_type") mediaType: String,
         @Path("category") category: String,
         @Query("page") page: Int
-    ): MovieResponse
+    ): Response<MovieResponse>
 
     @GET("{media_type}/{media_id}?api_key=$API_KEY")
     suspend fun getDetailMovie(

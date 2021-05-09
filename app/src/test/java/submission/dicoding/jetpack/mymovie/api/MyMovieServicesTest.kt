@@ -30,8 +30,8 @@ class MyMovieServicesTest : ApiAbstract<MyMovieServices>() {
     @Test
     fun `get movie from network and verify data`() = runBlocking {
         enqueueResponse("/MovieResponse.json")
-        val response = service.getMovies("movie", "now_playing", 1)
-        val responseBody = requireNotNull(response.results)
+        val response = service.getListMovies("movie", "now_playing", 1)
+        val responseBody = requireNotNull(response.body()?.results)
         mockWebServer.takeRequest()
 
         val value = responseBody[0]
