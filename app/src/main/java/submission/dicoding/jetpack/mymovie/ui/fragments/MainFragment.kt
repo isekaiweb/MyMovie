@@ -14,7 +14,7 @@ import submission.dicoding.jetpack.mymovie.ui.adapters.ViewPagerAdapter
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main) {
     private var _binding: FragmentMainBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding
     private lateinit var pagerAdapter: ViewPagerAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,7 +34,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         )
 
         pagerAdapter = ViewPagerAdapter(requireActivity() as AppCompatActivity)
-        binding.apply {
+        binding?.apply {
             viewpager.adapter = pagerAdapter
             TabLayoutMediator(tab, viewpager) { tab, pos ->
                 tab.icon = tabIcon[pos]

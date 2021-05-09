@@ -22,7 +22,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class DetailFragment : Fragment(R.layout.fragment_detail) {
     private var _binding: FragmentDetailBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding
     private val args by navArgs<DetailFragmentArgs>()
     private val viewModel: DetailViewModel by hiltNavGraphViewModels(R.id.nav_host)
 
@@ -43,7 +43,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
             viewModel.getDetailMovie(it[0], it[1].toInt())
         }
 
-        binding.apply {
+        binding?.apply {
             layoutRefresh.setOnRefreshListener {
                 subscribeToObserver()
             }
@@ -55,9 +55,9 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     }
 
     private fun subscribeToObserver() {
-        val layoutRefresh = binding.layoutRefresh
-        val ibRefresh = binding.ibRefresh
-        ibRefresh.isVisible = false
+        val layoutRefresh = binding?.layoutRefresh
+        val ibRefresh = binding?.ibRefresh
+        ibRefresh?.isVisible = false
         setupData()
         var loading = false
         viewModel.movie.observe(viewLifecycleOwner, EventObserver { response ->
@@ -67,7 +67,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                         data?.let { movie -> setupUI(movie) }
                     }
                     Status.ERROR -> {
-                        ibRefresh.isVisible = true
+                        ibRefresh?.isVisible = true
                         createToastNetworkError(true, requireContext())
                     }
                     Status.LOADING -> {
@@ -76,13 +76,13 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
                 }
             }
         })
-        layoutRefresh.isRefreshing = loading
+        layoutRefresh?.isRefreshing = loading
     }
 
 
     private fun setupUI(movie: Movie) {
 
-        binding.apply {
+        binding?.apply {
             with(movie) {
                 glide.load("${BASE_URL_IMG}${poster_path}")
                     .transition(DrawableTransitionOptions.withCrossFade())

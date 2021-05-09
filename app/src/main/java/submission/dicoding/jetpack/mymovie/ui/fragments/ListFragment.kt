@@ -22,7 +22,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class ListFragment : Fragment(R.layout.fragment_list) {
     private var _binding: FragmentListBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding
     private val viewModel: ListViewModel by viewModels()
 
     @Inject
@@ -33,7 +33,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentListBinding.bind(view)
 
-        binding.rvList.apply {
+        binding?.rvList?.apply {
             adapter = listAdapter.withLoadStateFooter(
                 MovieLoadStateAdapter { listAdapter.retry() }
             )
@@ -45,7 +45,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
 
 
     private fun setupUI() {
-        binding.apply {
+        binding?.apply {
             listAdapter.addLoadStateListener { state ->
                 rvList.isVisible = state.source.refresh is LoadState.NotLoading
                 createToastNetworkError(state.source.refresh is LoadState.Error, requireContext())
