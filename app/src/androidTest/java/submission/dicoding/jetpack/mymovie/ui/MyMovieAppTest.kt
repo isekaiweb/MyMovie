@@ -71,29 +71,30 @@ class MyMovieAppTest {
     }
 
 
-    /**
-    Test, to check if swipe layout refresh be able to swipe
-     */
-
-    @Test
-    fun swipeLayoutRefresh() {
-        onView(withId(R.id.layoutRefresh)).perform(swipeDown())
-    }
-
 
     /* List Fragment Test */
 
     /**
-    Test, to check if recycler and android swipe refresh view displayed
+    Test, to check if recycler view displayed
      */
 
     @Test
     fun loadAllViews_in_ListFragment() {
         onView(withId(R.id.rvList))
             .check(matches(isDisplayed()))
+    }
 
+
+    /**
+    Test, to check if swipe layout refresh be able to swipe and show up
+     */
+
+    @Test
+    fun swipeLayoutRefresh() {
+        onView(withId(R.id.layoutRefresh)).perform(swipeDown())
         onView(withId(R.id.layoutRefresh)).check(matches(isDisplayed()))
     }
+
 
     /**
     Test, to check if item in recycler view in list fragment on section movie when click would navigate to detailFragment
@@ -134,7 +135,7 @@ class MyMovieAppTest {
                 click()
             )
         )
-        onView(withId(R.id.layoutRefresh)).check(matches(isDisplayed()))
+
         onView(withId(R.id.ivPoster))
             .check(matches(isDisplayed()))
         onView(withId(R.id.tvTitle))
@@ -144,6 +145,7 @@ class MyMovieAppTest {
         onView(withId(R.id.tvOverview))
             .check(matches(isDisplayed()))
         onView(withId(R.id.layoutRefresh)).perform(swipeDown())
+        onView(withId(R.id.layoutRefresh)).check(matches(isDisplayed()))
 
         pressBack()
 
