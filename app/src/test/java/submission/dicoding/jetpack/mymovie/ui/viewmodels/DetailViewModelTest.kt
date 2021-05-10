@@ -10,6 +10,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
+import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 import submission.dicoding.jetpack.mymovie.MainCoroutinesRule
 import submission.dicoding.jetpack.mymovie.models.Movie
@@ -51,6 +52,7 @@ class DetailViewModelTest {
         viewModel.getDetailMovie("movie", 1)
         val value = viewModel.movie.getOrAwaitValue().getContentIfNotHandled()
 
+        verify(repoImpl).getMovieDetail("movie",1)
         assertThat(value?.status).isEqualTo(Status.SUCCESS)
         assertThat(value?.data).isEqualTo(movie)
     }
@@ -65,6 +67,7 @@ class DetailViewModelTest {
         viewModel.getDetailMovie("movie", 1)
         val value = viewModel.movie.getOrAwaitValue().getContentIfNotHandled()
 
+        verify(repoImpl).getMovieDetail("movie",1)
         assertThat(value?.status).isEqualTo(Status.ERROR)
         assertThat(value?.message).isEqualTo(NETWORK_FAILURE)
         assertThat(value?.data).isNull()
