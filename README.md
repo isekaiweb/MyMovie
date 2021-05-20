@@ -5,10 +5,9 @@ This is an app i created for accomplish task from [Dicoding](https://www.dicodin
 i'm using TMDb API here hence you need to create your own KEY API first to running this code properly, you can visit [here](https://www.themoviedb.org/login) to create your account first and go to settings click to API [here](https://www.themoviedb.org/settings/api)
 
 ### After you get KEY API, you must create one more thing
-```
-click on your file, select new file and named gradle.properties
+click on your file, select new file and named **gradle.properties**
 and the add this all code inside the file :
-
+```
 org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
 android.useAndroidX=true
 android.enableJetifier=true
