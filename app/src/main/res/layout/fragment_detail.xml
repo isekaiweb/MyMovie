@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+   >
+
+   <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+       android:id="@+id/layoutRefresh"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               >
+
+               <ImageView
+                   android:id="@+id/ivPoster"
+                   android:layout_width="match_parent"
+                   android:layout_height="300sp"
+                   android:background="@color/secondary_black"
+                   android:contentDescription="@string/poster"
+                   android:scaleType="centerCrop"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   tools:src="@tools:sample/avatars" />
+
+               <View
+                   android:id="@+id/shade"
+                   android:layout_width="match_parent"
+                   android:layout_height="60dp"
+                   android:layout_alignBottom="@id/ivPoster"
+                   android:background="@drawable/shade"
+                   app:layout_constraintBottom_toBottomOf="@+id/ivPoster"
+                   />
+
+               <ToggleButton
+                   android:id="@+id/tbFavorite"
+                   android:layout_width="48dp"
+                   android:layout_height="48dp"
+                   android:layout_margin="5dp"
+                   android:background="@drawable/favorite_toggle"
+                   android:clickable="true"
+                   android:focusable="true"
+                   android:elevation="10dp"
+                   android:textOff=""
+                   android:textOn=""
+                   app:layout_constraintBottom_toBottomOf="@+id/ivPoster"
+                   app:layout_constraintEnd_toEndOf="@+id/ivPoster" />
+
+
+               <TextView
+                   android:id="@+id/tvTitle"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="10dp"
+
+                   android:textColor="@color/black"
+                   android:textSize="25sp"
+                   android:textStyle="bold"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/ivPoster"
+                   tools:text="@string/dummyTitle" />
+
+               <TextView
+                   android:id="@+id/tvDate"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:textSize="20sp"
+                   android:textColor="@color/secondary_black"
+                   android:layout_marginStart="10dp"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                   tools:text="@string/dummyDate" />
+
+               <TextView
+                   android:id="@+id/tvOverview"
+                   android:layout_width="0dp"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="20dp"
+                   android:textColor="@color/black"
+                   android:textSize="22sp"
+                   android:layout_marginHorizontal="10dp"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/tvDate"
+                   tools:text="@string/dummyOverview" />
+
+               <ImageButton
+                   android:id="@+id/ibRefresh"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:background="@drawable/ripple_for_image_btn_50dp"
+                   android:contentDescription="@string/reload"
+                   android:src="@drawable/ic_reload_50dp"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintHorizontal_bias="0.498"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+               <androidx.constraintlayout.widget.Guideline
+                   android:id="@+id/guideline2"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   app:layout_constraintGuide_begin="100dp" />
+
+
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+       </ScrollView>
+
+   </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

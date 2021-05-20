@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">My Movie</string>
+    <string name="poster">poster</string>
+    <string name="error">couldn\'t loaded …</string>
+    <string name="retry">Retry</string>
+    <string name="reload">reload</string>
+    <string name="dummyOverview">Tanjiro Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar\'s head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Kyojuro Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!</string>
+    <string name="dummyTitle">Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train</string>
+    <string name="dummyDate">16 October 2020</string>
+    <string name="bookmark">bookmark</string>
+    <string name="search">search</string>
+    <string name="emptyBook">empty bookmark</string>
+    <string name="titleFavorite">My Favorite</string>
+    <string name="back">back</string>
+    <string name="movie">movie</string>
+    <string name="arrow_down">arrow_down</string>
+    <string name="search_movie">search movie</string>
+    <string name="not_found">not found</string>
+    <string-array name="media_type">
+        <item>movie</item>
+        <item>tv</item>
+    </string-array>
+    <string-array name="category">
+        <item>now_playing</item>
+        <item>airing_today</item>
+    </string-array>
+</resources>
