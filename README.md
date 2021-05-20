@@ -19,6 +19,13 @@ kotlin.code.style=official
 API_KEY = "" -> (place your KEY API here)
 ```
 
+## End Point
+- Movie Now Playing : [/movie/now_playing](https://developers.themoviedb.org/3/movies/get-now-playing)
+- Detail Movie : [/movie/{movie_id}](https://developers.themoviedb.org/3/movies/get-movie-details)
+- TV on Airing : [/tv/on_the_air](https://developers.themoviedb.org/3/tv/get-tv-on-the-air)
+- Detail TV : [/tv/{tv_id}](https://developers.themoviedb.org/3/tv/get-tv-details)
+- Search : [/search/multi](https://developers.themoviedb.org/3/search/multi-search)
+
 ## This is what i have to do to accomplish the task
 **Main Page**
 - Have 2 page to display both list Movie and Series
@@ -57,14 +64,6 @@ API_KEY = "" -> (place your KEY API here)
 -[ViewPager2](https://developer.android.com/jetpack/androidx/releases/viewpager2?hl=id)
 - [Kotlin Coroutines Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
 - [Truth](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
-
-## End Point
-- Movie Now Playing : [/movie/now_playing](https://developers.themoviedb.org/3/movies/get-now-playing)
-- Detail Movie : [/movie/{movie_id}](https://developers.themoviedb.org/3/movies/get-movie-details)
-- TV on Airing : [/tv/on_the_air](https://developers.themoviedb.org/3/tv/get-tv-on-the-air)
-- Detail TV : [/tv/{tv_id}](https://developers.themoviedb.org/3/tv/get-tv-details)
-- Search : [/search/multi](https://developers.themoviedb.org/3/search/multi-search)
-
 
 ## Features
 **Main Page**
