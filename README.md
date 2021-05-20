@@ -13,7 +13,7 @@ org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
 android.useAndroidX=true
 android.enableJetifier=true
 kotlin.code.style=official
-API_KEY = "" (place your KEY API here)
+API_KEY = "" -> (place your KEY API here)
 ```
 
 ## This is what i have to do to accomplish the task
