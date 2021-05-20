@@ -18,3 +18,9 @@ android.enableJetifier=true
 kotlin.code.style=official
 API_KEY = "" -> (place your KEY API here)
 ```
+## End Point
+- Movie Now Playing : [/movie/now_playing](https://developers.themoviedb.org/3/movies/get-now-playing)
+- Detail Movie : [/movie/{movie_id}](https://developers.themoviedb.org/3/movies/get-movie-details)
+- TV on Airing : [/tv/on_the_air](https://developers.themoviedb.org/3/tv/get-tv-on-the-air)
+- Detail TV : [/tv/{tv_id}](https://developers.themoviedb.org/3/tv/get-tv-details)
+- Search : [/search/multi](https://developers.themoviedb.org/3/search/multi-search)
