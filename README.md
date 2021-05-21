@@ -10,7 +10,7 @@ i'm using TMDb API here hence you need to create your own KEY API first to runni
 
 ### After you get KEY API, you must create one more thing
 click on your file, select new file and named **gradle.properties**
-and the add this all code inside the file :
+and then add this all code inside the file :
 ```
 org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
 android.useAndroidX=true
