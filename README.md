@@ -61,7 +61,7 @@ API_KEY = "" -> (place your KEY API here)
 -  [Smooth Loader](https://github.com/nntuyen/mkloader)
 - [View Binding](https://developer.android.com/topic/libraries/view-binding?hl=en)
 - [Paging3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
--[ViewPager2](https://developer.android.com/jetpack/androidx/releases/viewpager2?hl=id)
+- [ViewPager2](https://developer.android.com/jetpack/androidx/releases/viewpager2?hl=id)
 - [Kotlin Coroutines Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
 - [Truth](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
 
