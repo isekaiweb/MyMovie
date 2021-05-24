@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/detailFragment"
         tools:layout="@layout/fragment_detail"
-        android:name="submission.dicoding.jetpack.mymovie.ui.fragments.DetailFragment"
+        android:name="submission.dicoding.jetpack.mymovie.ui.detail.DetailFragment"
         android:label="DetailFragment">
         <argument
             android:name="path"
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="submission.dicoding.jetpack.mymovie.ui.fragments.MainFragment"
+        android:name="submission.dicoding.jetpack.mymovie.ui.main.MainFragment"
         tools:layout="@layout/fragment_main"
         android:label="MainFragment" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="submission.dicoding.jetpack.mymovie.ui.fragments.SearchFragment"
+        android:name="submission.dicoding.jetpack.mymovie.ui.search.SearchFragment"
         android:label="SearchFragment" >
         <action
             android:id="@+id/action_searchFragment_to_detailFragment"
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="submission.dicoding.jetpack.mymovie.ui.fragments.FavoriteFragment"
+        android:name="submission.dicoding.jetpack.mymovie.ui.favorite.FavoriteFragment"
         android:label="FavoriteFragment" >
         <action
             android:id="@+id/action_favoriteFragment_to_detailFragment"
