@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="submission.dicoding.jetpack.mymovie.ui.favorite.FavoriteFragment"
+        android:name="submission.dicoding.jetpack.mymovie.favorite.ui.FavoriteFragment"
         android:label="FavoriteFragment" >
         <action
             android:id="@+id/action_favoriteFragment_to_detailFragment"

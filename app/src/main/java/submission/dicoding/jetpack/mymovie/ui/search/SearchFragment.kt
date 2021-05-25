@@ -26,9 +26,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding
     private val viewModel: SearchViewModel by hiltNavGraphViewModels(R.id.nav_host)
-
-    @Inject
-    lateinit var listAdapter: ListAdapter
+    private lateinit var listAdapter: ListAdapter
 
     @Inject
     lateinit var sharedPreferences: SharedPreferences

@@ -1,4 +1,4 @@
-package submission.dicoding.jetpack.mymovie.core.adapters
+package submission.dicoding.jetpack.mymovie.favorite.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -44,7 +44,7 @@ class FavoriteAdapter @Inject constructor(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): FavoriteAdapter.FavoriteViewHolder =
+    ): FavoriteViewHolder =
         FavoriteViewHolder(
             FavoriteModelBinding.inflate(
                 LayoutInflater.from(parent.context), parent,
@@ -53,7 +53,7 @@ class FavoriteAdapter @Inject constructor(
         )
 
 
-    override fun onBindViewHolder(holder: FavoriteAdapter.FavoriteViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         val currentItem = getItem(position)
         if (currentItem != null) {
             holder.bind(currentItem)

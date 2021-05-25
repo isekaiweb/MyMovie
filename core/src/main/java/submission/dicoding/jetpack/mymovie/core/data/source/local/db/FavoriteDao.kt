@@ -9,10 +9,10 @@ import submission.dicoding.jetpack.mymovie.core.data.source.local.entity.Favorit
 @Dao
 interface FavoriteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertFavorite(favorite: submission.dicoding.jetpack.mymovie.core.data.source.local.entity.FavoriteEntity)
+    suspend fun insertFavorite(favorite: FavoriteEntity)
 
     @Delete
-    suspend fun deleteFavorite(favorite: submission.dicoding.jetpack.mymovie.core.data.source.local.entity.FavoriteEntity)
+    suspend fun deleteFavorite(favorite: FavoriteEntity)
 
     @Query("SELECT count(*) FROM favorite WHERE id = :id")
     fun isFavorite(id: Int): Flow<Int>
@@ -21,5 +21,5 @@ interface FavoriteDao {
     fun getSumOfAllFavorite(mediaType: String): Flow<Int>
 
     @Query("SELECT * FROM favorite  WHERE media_type = :mediaType")
-    fun getAllFavorite(mediaType: String): PagingSource<Int, submission.dicoding.jetpack.mymovie.core.data.source.local.entity.FavoriteEntity>
+    fun getAllFavorite(mediaType: String): PagingSource<Int, FavoriteEntity>
 }

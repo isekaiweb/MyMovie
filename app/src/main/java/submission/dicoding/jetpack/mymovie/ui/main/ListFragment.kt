@@ -15,7 +15,6 @@ import submission.dicoding.jetpack.mymovie.core.adapters.ListAdapter
 import submission.dicoding.jetpack.mymovie.core.adapters.MovieLoadStateAdapter
 import submission.dicoding.jetpack.mymovie.databinding.FragmentListBinding
 import submission.dicoding.jetpack.mymovie.util.Function.createToastNetworkError
-import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -23,9 +22,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding
     private val viewModel: ListViewModel by viewModels()
-
-    @Inject
-    lateinit var listAdapter: ListAdapter
+    private lateinit var listAdapter: ListAdapter
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

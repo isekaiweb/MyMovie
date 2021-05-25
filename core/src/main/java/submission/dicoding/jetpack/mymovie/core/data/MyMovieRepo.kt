@@ -17,7 +17,7 @@ import javax.inject.Singleton
 @Singleton
 class MyMovieRepo @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: submission.dicoding.jetpack.mymovie.core.data.source.local.LocalDataSource
+    private val localDataSource: LocalDataSource
 ) : IMyMovieRepo {
     override fun getAllList(
         mediaType: String,

@@ -1,4 +1,4 @@
-package submission.dicoding.jetpack.mymovie.ui.favorite
+package submission.dicoding.jetpack.mymovie.ui.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import submission.dicoding.jetpack.mymovie.R
-import submission.dicoding.jetpack.mymovie.databinding.FragmentFavoriteBinding
-
+import submission.dicoding.jetpack.mymovie.favorite.R
+import submission.dicoding.jetpack.mymovie.favorite.databinding.FragmentFavoriteBinding
+import submission.dicoding.jetpack.mymovie.favorite.ui.ViewPagerFavoriteAdapter
 
 @AndroidEntryPoint
 class FavoriteFragment : Fragment(R.layout.fragment_favorite) {

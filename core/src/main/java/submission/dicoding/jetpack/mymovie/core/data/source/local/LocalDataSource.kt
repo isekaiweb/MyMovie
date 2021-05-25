@@ -10,17 +10,17 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LocalDataSource @Inject constructor(private val dao: submission.dicoding.jetpack.mymovie.core.data.source.local.db.FavoriteDao) {
-    fun getAllFavorite(mediaType: String): Flow<PagingData<submission.dicoding.jetpack.mymovie.core.data.source.local.entity.FavoriteEntity>> =
+class LocalDataSource @Inject constructor(private val dao: FavoriteDao) {
+    fun getAllFavorite(mediaType: String): Flow<PagingData<FavoriteEntity>> =
         Pager(
             config = PagingConfig(pageSize = 20, enablePlaceholders = false),
             pagingSourceFactory = { dao.getAllFavorite(mediaType) }
         ).flow
 
-    suspend fun insertFavorite(favoriteEntity: submission.dicoding.jetpack.mymovie.core.data.source.local.entity.FavoriteEntity) =
+    suspend fun insertFavorite(favoriteEntity: FavoriteEntity) =
         dao.insertFavorite(favoriteEntity)
 
-    suspend fun deleteFavorite(favoriteEntity: submission.dicoding.jetpack.mymovie.core.data.source.local.entity.FavoriteEntity) =
+    suspend fun deleteFavorite(favoriteEntity: FavoriteEntity) =
         dao.deleteFavorite(favoriteEntity)
 
     fun isFavorite(id: Int): Flow<Int> = dao.isFavorite(id)

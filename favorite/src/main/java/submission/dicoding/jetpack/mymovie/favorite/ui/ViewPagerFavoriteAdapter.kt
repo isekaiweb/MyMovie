@@ -1,4 +1,4 @@
-package submission.dicoding.jetpack.mymovie.ui.favorite
+package submission.dicoding.jetpack.mymovie.favorite.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

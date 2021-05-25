@@ -24,4 +24,5 @@
         <item>now_playing</item>
         <item>airing_today</item>
     </string-array>
+    <string name="title_favorite">favorite</string>
 </resources>
