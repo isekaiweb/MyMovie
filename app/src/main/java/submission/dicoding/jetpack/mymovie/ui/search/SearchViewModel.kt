@@ -1,9 +1,6 @@
 package submission.dicoding.jetpack.mymovie.ui.search
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel

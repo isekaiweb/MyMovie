@@ -26,7 +26,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding
     private val viewModel: SearchViewModel by hiltNavGraphViewModels(R.id.nav_host)
-    private lateinit var listAdapter:ListAdapter
+    private lateinit var listAdapter: ListAdapter
 
 
     @Inject
@@ -36,6 +36,15 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSearchBinding.bind(view)
 
+        subscribeToViewModel()
+        setupAdapter()
+        setupListener()
+        setupUI()
+        setupMoveToAnotherFragment()
+    }
+
+
+    private fun setupAdapter() {
         listAdapter = ListAdapter()
         binding?.rvSearch?.apply {
             adapter = listAdapter.withLoadStateFooter(
@@ -43,20 +52,9 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             )
             layoutManager = LinearLayoutManager(requireContext())
         }
-
-        setupUI()
-        setupMoveToAnotherFragment()
     }
 
-
     private fun setupUI() {
-        val currentOrientation = resources.configuration.orientation
-        val orientation = sharedPreferences.getInt("orientation", 1)
-        val firstTimeOpen = sharedPreferences.getBoolean("firstTime", true)
-        if (currentOrientation != orientation || firstTimeOpen) {
-            subscribeToViewModel()
-            sharedPreferences.edit().putInt("orientation", currentOrientation).apply()
-        }
         binding?.apply {
             listAdapter.addLoadStateListener { state ->
                 rvSearch.isVisible = state.source.refresh is LoadState.NotLoading
@@ -78,7 +76,19 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             layoutRefresh.setColorSchemeColors(
                 ContextCompat.getColor(requireContext(), R.color.black)
             )
+        }
+    }
 
+    private fun handleResponseEmpty(isNotLoading: Boolean) {
+        if (isNotLoading) {
+            binding?.ivNotFound?.isVisible =
+                listAdapter.itemCount == 0 && sharedPreferences.getString("query", null) != null
+
+        }
+    }
+
+    private fun setupListener() {
+        binding?.apply {
             layoutRefresh.setOnRefreshListener {
                 listAdapter.refresh()
             }
@@ -92,19 +102,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             }
 
             setOnPressEnter(etSearch, ivSearch)
-        }
-    }
-
-    private fun handleResponseEmpty(isNotLoading: Boolean) {
-        if (isNotLoading) {
-
-            binding?.apply {
-                ivNotFound.isVisible = listAdapter.itemCount == 0 && sharedPreferences.getString(
-                    "query",
-                    null
-                ) != null
-            }
-
         }
     }
 
@@ -131,10 +128,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 requestFocus()
                 binding?.layoutRefresh?.isVisible = false
             } else {
+
                 hideKeyboard()
                 clearFocus()
                 setText(query)
-                sharedPreferences.edit().putBoolean("firstTime", false).apply()
                 viewModel.searchAll(query)
                     .observe(viewLifecycleOwner, {
                         listAdapter.submitData(viewLifecycleOwner.lifecycle, it)
@@ -164,7 +161,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     }
 
     override fun onDestroy() {
-        sharedPreferences.edit().putBoolean("firstTime", true).apply()
         _binding = null
         super.onDestroy()
     }

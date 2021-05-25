@@ -13,11 +13,8 @@ import javax.inject.Inject
 class MyMovieApp : Application() {
     private val applicationScope = CoroutineScope(Dispatchers.Default)
 
-    @Inject
-    lateinit var sharedPreferences: SharedPreferences
     override fun onCreate() {
         super.onCreate()
-        sharedPreferences.edit().putBoolean("firstTime", true).apply()
         applicationScope.launch {
             Timber.plant(Timber.DebugTree())
         }

@@ -29,6 +29,13 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentListBinding.bind(view)
 
+        setupAdapter()
+        setData()
+        setupUI()
+        setupMoveToDetail()
+    }
+
+    private fun setupAdapter() {
         listAdapter = ListAdapter()
         binding?.rvList?.apply {
             adapter = listAdapter.withLoadStateFooter(
@@ -37,11 +44,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
             layoutManager = LinearLayoutManager(requireContext())
         }
 
-        setData()
-        setupUI()
-        setupMoveToDetail()
     }
-
 
     private fun setupUI() {
         binding?.apply {
