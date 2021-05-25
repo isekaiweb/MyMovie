@@ -2,7 +2,10 @@ package submission.dicoding.jetpack.mymovie.core.data
 
 import androidx.paging.PagingData
 import androidx.paging.map
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import submission.dicoding.jetpack.mymovie.core.data.source.local.LocalDataSource
 import submission.dicoding.jetpack.mymovie.core.data.source.remote.RemoteDataSource
 import submission.dicoding.jetpack.mymovie.core.data.source.remote.network.ApiResponse
@@ -55,15 +58,15 @@ class MyMovieRepo @Inject constructor(
         }
 
 
-    override fun getAllFavorite(mediaType: String): Flow<PagingData<FavoriteData>> =
-        localDataSource.getAllFavorite(mediaType).map {
+    override fun getAllFavorite(): Flow<PagingData<FavoriteData>> =
+        localDataSource.getAllFavorite().map {
             it.map { favoriteEntity ->
                 DataMapper.mapEntitiesToDomain(favoriteEntity)
             }
         }
 
-    override fun getSumOfAllFavorite(mediaType: String): Flow<Int> =
-        localDataSource.getSumOfAllFavorite(mediaType)
+    override fun getSumOfAllFavorite(): Flow<Int> =
+        localDataSource.getSumOfAllFavorite()
 
     override fun isFavorite(id: Int): Flow<Int> = localDataSource.isFavorite(id)
 

@@ -10,11 +10,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FavoriteViewModel @Inject constructor(
-    private val useCase: MyMovieUseCase
+    useCase: MyMovieUseCase
 ) : ViewModel() {
-    fun getAllMovie(mediaType: String) =
-        useCase.getAllFavorite(mediaType).asLiveData().cachedIn(viewModelScope)
-
-    fun getSumOfAllFavorite(mediaType: String) = useCase.getSumOfAllFavorite(mediaType).asLiveData()
+    val getAllFavorite =
+        useCase.getAllFavorite().asLiveData().cachedIn(viewModelScope)
+    val getSumOfAllFavorite = useCase.getSumOfAllFavorite().asLiveData()
 
 }

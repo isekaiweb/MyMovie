@@ -23,11 +23,11 @@ class MyMovieInteractor @Inject constructor(
     override  fun getDetailItem(mediaType: String, mediaId: Int): Flow<Resource<AllData>> =
         iRepo.getDetailItem(mediaType, mediaId)
 
-    override fun getAllFavorite(mediaType: String): Flow<PagingData<FavoriteData>> =
-        iRepo.getAllFavorite(mediaType)
+    override fun getAllFavorite(): Flow<PagingData<FavoriteData>> =
+        iRepo.getAllFavorite()
 
-    override fun getSumOfAllFavorite(mediaType: String): Flow<Int> =
-        iRepo.getSumOfAllFavorite(mediaType)
+    override fun getSumOfAllFavorite(): Flow<Int> =
+        iRepo.getSumOfAllFavorite()
 
     override fun isFavorite(id: Int): Flow<Int> = iRepo.isFavorite(id)
 

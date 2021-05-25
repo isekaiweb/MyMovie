@@ -13,8 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import submission.dicoding.jetpack.mymovie.R
 import submission.dicoding.jetpack.mymovie.core.adapters.ListAdapter
 import submission.dicoding.jetpack.mymovie.core.adapters.MovieLoadStateAdapter
+import submission.dicoding.jetpack.mymovie.core.util.Function.createToastNetworkError
 import submission.dicoding.jetpack.mymovie.databinding.FragmentListBinding
-import submission.dicoding.jetpack.mymovie.util.Function.createToastNetworkError
 
 
 @AndroidEntryPoint
@@ -29,6 +29,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentListBinding.bind(view)
 
+        listAdapter = ListAdapter()
         binding?.rvList?.apply {
             adapter = listAdapter.withLoadStateFooter(
                 MovieLoadStateAdapter { listAdapter.retry() }

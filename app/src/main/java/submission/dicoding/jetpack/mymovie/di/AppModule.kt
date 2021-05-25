@@ -11,6 +11,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import submission.dicoding.jetpack.mymovie.R
+import submission.dicoding.jetpack.mymovie.core.data.MyMovieRepo
+import submission.dicoding.jetpack.mymovie.core.domain.usecase.MyMovieInteractor
+import submission.dicoding.jetpack.mymovie.core.domain.usecase.MyMovieUseCase
 import javax.inject.Singleton
 
 @Module
@@ -19,18 +22,12 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideGlideInstance(
-        @ApplicationContext context: Context
-    ): RequestManager = Glide.with(context).setDefaultRequestOptions(
-        RequestOptions()
-            .placeholder(R.drawable.ic_launcher_foreground)
-            .error(R.drawable.ic_launcher_foreground)
-            .centerCrop()
-    )
-
-    @Singleton
-    @Provides
     fun provideSharedPreferences(@ApplicationContext app: Context): SharedPreferences =
         app.getSharedPreferences("save_search", Context.MODE_PRIVATE)
+
+
+    @Provides
+    @Singleton
+    fun provideUseCase(repo: MyMovieRepo): MyMovieUseCase = MyMovieInteractor(repo)
 
 }

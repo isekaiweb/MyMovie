@@ -1,4 +1,4 @@
-package submission.dicoding.jetpack.mymovie.favorite.di
+package submission.dicoding.jetpack.mymovie.di
 
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
@@ -7,6 +7,6 @@ import submission.dicoding.jetpack.mymovie.core.domain.usecase.MyMovieUseCase
 
 @EntryPoint
 @InstallIn(SingletonComponent::class)
-interface FavoriteModule {
+interface FavoriteModuleDependencies {
     fun useCase(): MyMovieUseCase
 }

@@ -5,16 +5,12 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.RequestManager
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import submission.dicoding.jetpack.mymovie.core.databinding.FavoriteModelBinding
 import submission.dicoding.jetpack.mymovie.core.domain.model.FavoriteData
-import submission.dicoding.jetpack.mymovie.core.util.Constants.BASE_URL_IMG
-import javax.inject.Inject
+import submission.dicoding.jetpack.mymovie.core.util.Function.glide
 
-class FavoriteAdapter @Inject constructor(
-    val glide: RequestManager
-) : PagingDataAdapter<FavoriteData, FavoriteAdapter.FavoriteViewHolder>(DIFF_CALLBACK) {
+class FavoriteAdapter :
+    PagingDataAdapter<FavoriteData, FavoriteAdapter.FavoriteViewHolder>(DIFF_CALLBACK) {
 
     private var onItemClickListener: ((FavoriteData) -> Unit)? = null
 
@@ -28,9 +24,7 @@ class FavoriteAdapter @Inject constructor(
         fun bind(favoriteData: FavoriteData) {
             binding.apply {
                 favoriteData.apply {
-                    glide.load("${BASE_URL_IMG}${poster_path}")
-                        .transition(DrawableTransitionOptions.withCrossFade())
-                        .into(ivPoster)
+                    itemView.glide(poster_path, ivPoster)
                     tvTitle.text = title
                     itemView.setOnClickListener {
                         onItemClickListener?.let { click -> click(this) }

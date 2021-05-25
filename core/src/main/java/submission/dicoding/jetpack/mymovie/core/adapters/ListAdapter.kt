@@ -5,17 +5,13 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.RequestManager
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import submission.dicoding.jetpack.mymovie.core.databinding.ListModelBinding
 import submission.dicoding.jetpack.mymovie.core.domain.model.AllData
-import submission.dicoding.jetpack.mymovie.core.util.Constants.BASE_URL_IMG
-import javax.inject.Inject
+import submission.dicoding.jetpack.mymovie.core.util.Function.glide
+import timber.log.Timber
+import javax.inject.Singleton
 
-
-class ListAdapter @Inject constructor(
-    val glide: RequestManager
-) : PagingDataAdapter<AllData, ListAdapter.ListViewHolder>(DIFF_CALLBACK) {
+class ListAdapter : PagingDataAdapter<AllData, ListAdapter.ListViewHolder>(DIFF_CALLBACK) {
 
     private var onItemClickListener: ((AllData) -> Unit)? = null
 
@@ -30,9 +26,7 @@ class ListAdapter @Inject constructor(
         fun bind(movieEntity: AllData) {
             binding.apply {
                 movieEntity.apply {
-                    glide.load("${BASE_URL_IMG}${poster_path}")
-                        .transition(DrawableTransitionOptions.withCrossFade())
-                        .into(ivPoster)
+                    itemView.glide(poster_path, ivPoster)
                     tvTitle.text = title
                     tvOverview.text = overview
 

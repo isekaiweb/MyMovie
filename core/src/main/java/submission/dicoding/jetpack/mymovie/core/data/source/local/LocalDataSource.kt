@@ -11,10 +11,10 @@ import javax.inject.Singleton
 
 @Singleton
 class LocalDataSource @Inject constructor(private val dao: FavoriteDao) {
-    fun getAllFavorite(mediaType: String): Flow<PagingData<FavoriteEntity>> =
+    fun getAllFavorite(): Flow<PagingData<FavoriteEntity>> =
         Pager(
             config = PagingConfig(pageSize = 20, enablePlaceholders = false),
-            pagingSourceFactory = { dao.getAllFavorite(mediaType) }
+            pagingSourceFactory = { dao.getAllFavorite() }
         ).flow
 
     suspend fun insertFavorite(favoriteEntity: FavoriteEntity) =
@@ -25,6 +25,6 @@ class LocalDataSource @Inject constructor(private val dao: FavoriteDao) {
 
     fun isFavorite(id: Int): Flow<Int> = dao.isFavorite(id)
 
-    fun getSumOfAllFavorite(mediaType: String): Flow<Int> =
-        dao.getSumOfAllFavorite(mediaType)
+    fun getSumOfAllFavorite(): Flow<Int> =
+        dao.getSumOfAllFavorite()
 }

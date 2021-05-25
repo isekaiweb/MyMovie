@@ -19,8 +19,8 @@ interface MyMovieUseCase {
 
     fun getDetailItem(mediaType: String, mediaId: Int): Flow<Resource<AllData>>
 
-    fun getAllFavorite(mediaType: String): Flow<PagingData<FavoriteData>>
-    fun getSumOfAllFavorite(mediaType: String): Flow<Int>
+    fun getAllFavorite(): Flow<PagingData<FavoriteData>>
+    fun getSumOfAllFavorite(): Flow<Int>
     fun isFavorite(id: Int): Flow<Int>
     suspend fun insertFavorite(favoriteData: FavoriteData)
     suspend fun deleteFavorite(favoriteData: FavoriteData)

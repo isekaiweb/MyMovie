@@ -1,6 +1,5 @@
 package submission.dicoding.jetpack.mymovie.core.data.source.local.db
 
-import androidx.lifecycle.LiveData
 import androidx.paging.PagingSource
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
@@ -17,9 +16,9 @@ interface FavoriteDao {
     @Query("SELECT count(*) FROM favorite WHERE id = :id")
     fun isFavorite(id: Int): Flow<Int>
 
-    @Query("SELECT count(*) FROM favorite WHERE media_type = :mediaType")
-    fun getSumOfAllFavorite(mediaType: String): Flow<Int>
+    @Query("SELECT count(*) FROM favorite")
+    fun getSumOfAllFavorite(): Flow<Int>
 
-    @Query("SELECT * FROM favorite  WHERE media_type = :mediaType")
-    fun getAllFavorite(mediaType: String): PagingSource<Int, FavoriteEntity>
+    @Query("SELECT * FROM favorite")
+    fun getAllFavorite(): PagingSource<Int, FavoriteEntity>
 }

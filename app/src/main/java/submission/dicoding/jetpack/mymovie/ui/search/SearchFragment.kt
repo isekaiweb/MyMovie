@@ -14,11 +14,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import submission.dicoding.jetpack.mymovie.R
 import submission.dicoding.jetpack.mymovie.core.adapters.ListAdapter
 import submission.dicoding.jetpack.mymovie.core.adapters.MovieLoadStateAdapter
+import submission.dicoding.jetpack.mymovie.core.util.Function.createToastNetworkError
+import submission.dicoding.jetpack.mymovie.core.util.Function.hideKeyboard
+import submission.dicoding.jetpack.mymovie.core.util.Function.setOnPressEnter
+import submission.dicoding.jetpack.mymovie.core.util.Function.showKeyboard
 import submission.dicoding.jetpack.mymovie.databinding.FragmentSearchBinding
-import submission.dicoding.jetpack.mymovie.util.Function.createToastNetworkError
-import submission.dicoding.jetpack.mymovie.util.Function.hideKeyboard
-import submission.dicoding.jetpack.mymovie.util.Function.setOnPressEnter
-import submission.dicoding.jetpack.mymovie.util.Function.showKeyboard
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -26,7 +26,8 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding
     private val viewModel: SearchViewModel by hiltNavGraphViewModels(R.id.nav_host)
-    private lateinit var listAdapter: ListAdapter
+    private lateinit var listAdapter:ListAdapter
+
 
     @Inject
     lateinit var sharedPreferences: SharedPreferences
@@ -35,6 +36,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSearchBinding.bind(view)
 
+        listAdapter = ListAdapter()
         binding?.rvSearch?.apply {
             adapter = listAdapter.withLoadStateFooter(
                 MovieLoadStateAdapter { listAdapter.retry() }
@@ -55,7 +57,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             subscribeToViewModel()
             sharedPreferences.edit().putInt("orientation", currentOrientation).apply()
         }
-
         binding?.apply {
             listAdapter.addLoadStateListener { state ->
                 rvSearch.isVisible = state.source.refresh is LoadState.NotLoading
