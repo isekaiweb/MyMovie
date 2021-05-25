@@ -1,6 +1,5 @@
 package submission.dicoding.jetpack.mymovie.core.data.source.local
 
-import androidx.lifecycle.LiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -24,8 +23,8 @@ class LocalDataSource @Inject constructor(private val dao: FavoriteDao) {
     suspend fun deleteFavorite(favoriteEntity: FavoriteEntity) =
         dao.deleteFavorite(favoriteEntity)
 
-    fun isFavorite(id: Int):LiveData<Int> = dao.isFavorite(id)
+    fun isFavorite(id: Int): Flow<Int> = dao.isFavorite(id)
 
-    fun getSumOfAllFavorite(mediaType: String): LiveData<Int> =
+    fun getSumOfAllFavorite(mediaType: String): Flow<Int> =
         dao.getSumOfAllFavorite(mediaType)
 }

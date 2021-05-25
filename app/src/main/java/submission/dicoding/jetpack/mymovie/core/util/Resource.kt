@@ -1,6 +1,5 @@
-package submission.dicoding.jetpack.mymovie.core.data
+package submission.dicoding.jetpack.mymovie.core.util
 
-import submission.dicoding.jetpack.mymovie.core.domain.Status
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
     companion object {
@@ -16,5 +15,11 @@ data class Resource<out T>(val status: Status, val data: T?, val message: String
             return Resource(Status.LOADING, null, null)
         }
     }
+}
+
+enum class Status {
+    SUCCESS,
+    ERROR,
+    LOADING
 }
 

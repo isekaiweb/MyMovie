@@ -6,6 +6,7 @@ import androidx.paging.PagingData
 import androidx.paging.filter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import retrofit2.HttpException
@@ -52,15 +53,17 @@ class RemoteDataSource @Inject constructor(private val services: ApiServices) {
     suspend fun getItemDetail(
         mediaType: String,
         mediaId: Int,
-    ): ApiResponse<AllResponse> =
-        try {
-            val response = services.getItemDetail(mediaType, mediaId)
-            ApiResponse.Success(response)
-        } catch (e: IOException) {
-            Timber.e(e.toString())
-            ApiResponse.Error(e.toString())
-        } catch (e: HttpException) {
-            Timber.e(e.toString())
-            ApiResponse.Error(e.toString())
+    ): Flow<ApiResponse<AllResponse>> =
+        flow {
+            try {
+                val response = services.getItemDetail(mediaType, mediaId)
+                emit(ApiResponse.Success(response))
+            } catch (e: IOException) {
+                Timber.e(e.toString())
+                emit(ApiResponse.Error(e.toString()))
+            } catch (e: HttpException) {
+                Timber.e(e.toString())
+                emit(ApiResponse.Error(e.toString()))
+            }
         }
 }

@@ -11,13 +11,12 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import submission.dicoding.jetpack.mymovie.R
-import submission.dicoding.jetpack.mymovie.core.domain.Status
 import submission.dicoding.jetpack.mymovie.core.domain.model.AllData
 import submission.dicoding.jetpack.mymovie.core.domain.model.FavoriteData
 import submission.dicoding.jetpack.mymovie.core.util.DataMapper
+import submission.dicoding.jetpack.mymovie.core.util.Status
 import submission.dicoding.jetpack.mymovie.databinding.FragmentDetailBinding
 import submission.dicoding.jetpack.mymovie.util.Constants.BASE_URL_IMG
-import submission.dicoding.jetpack.mymovie.util.EventObserver
 import submission.dicoding.jetpack.mymovie.util.Function.createToastNetworkError
 import javax.inject.Inject
 
@@ -36,52 +35,46 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentDetailBinding.bind(view)
-        subscribeToObserver()
-    }
-
-    private fun setupData() {
-        val path = args.path
-        path.let {
-            viewModel.getDetailItem(it[0], it[1].toInt())
-        }
 
         binding?.apply {
             layoutRefresh.setOnRefreshListener {
                 subscribeToObserver()
             }
-
             ibRefresh.setOnClickListener {
                 subscribeToObserver()
             }
         }
+        subscribeToObserver()
     }
 
     private fun subscribeToObserver() {
+        val path = args.path
         val layoutRefresh = binding?.layoutRefresh
         val ibRefresh = binding?.ibRefresh
-        ibRefresh?.isVisible = false
-        setupData()
-        var loading = false
-        viewModel.detail.observe(viewLifecycleOwner, EventObserver { response ->
-            response.apply {
-                when (status) {
-                    Status.SUCCESS -> {
-                        data?.let { allData ->
-                            setupUI(allData)
-                            setupToDatabase(DataMapper.allDataToFavorite(allData))
+
+        path.let {
+            viewModel.getDetailItem(it[0], it[1].toInt()).observe(viewLifecycleOwner, { response ->
+                with(response) {
+                    layoutRefresh?.isRefreshing = status == Status.LOADING
+
+                    when (status) {
+                        Status.SUCCESS -> {
+                            data?.let { allData ->
+                                setupUI(allData)
+                                setupToDatabase(DataMapper.allDataToFavorite(allData))
+                            }
+                        }
+                        Status.ERROR -> {
+                            ibRefresh?.isVisible = true
+                            createToastNetworkError(true, requireContext())
+                        }
+                        Status.LOADING -> {
+                            ibRefresh?.isVisible = false
                         }
                     }
-                    Status.ERROR -> {
-                        ibRefresh?.isVisible = true
-                        createToastNetworkError(true, requireContext())
-                    }
-                    Status.LOADING -> {
-                        loading = true
-                    }
                 }
-            }
-        })
-        layoutRefresh?.isRefreshing = loading
+            })
+        }
     }
 
 

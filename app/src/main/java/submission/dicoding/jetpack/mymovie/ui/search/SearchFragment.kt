@@ -98,8 +98,13 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private fun handleResponseEmpty(isNotLoading: Boolean) {
         if (isNotLoading) {
-            binding?.ivNotFound?.isVisible =
-                listAdapter.itemCount == 0 && sharedPreferences.getString("query", null) != null
+
+            binding?.apply {
+                ivNotFound.isVisible = listAdapter.itemCount == 0 && sharedPreferences.getString(
+                    "query",
+                    null
+                ) != null
+            }
 
         }
     }
@@ -127,7 +132,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 requestFocus()
                 binding?.layoutRefresh?.isVisible = false
             } else {
-
                 hideKeyboard()
                 clearFocus()
                 setText(query)

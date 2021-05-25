@@ -1,10 +1,8 @@
 package submission.dicoding.jetpack.mymovie.core.data
 
-import androidx.lifecycle.LiveData
 import androidx.paging.PagingData
 import androidx.paging.map
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import submission.dicoding.jetpack.mymovie.core.data.source.local.LocalDataSource
 import submission.dicoding.jetpack.mymovie.core.data.source.remote.RemoteDataSource
 import submission.dicoding.jetpack.mymovie.core.data.source.remote.network.ApiResponse
@@ -12,6 +10,7 @@ import submission.dicoding.jetpack.mymovie.core.domain.model.AllData
 import submission.dicoding.jetpack.mymovie.core.domain.model.FavoriteData
 import submission.dicoding.jetpack.mymovie.core.domain.repo.IMyMovieRepo
 import submission.dicoding.jetpack.mymovie.core.util.DataMapper
+import submission.dicoding.jetpack.mymovie.core.util.Resource
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -39,16 +38,20 @@ class MyMovieRepo @Inject constructor(
         }
 
 
-    override suspend fun getDetailItem(mediaType: String, mediaId: Int): Resource<AllData> =
-        when (val apiResponse = remoteDataSource.getItemDetail(mediaType, mediaId)) {
-            is ApiResponse.Success ->
-                Resource.success(
-                    DataMapper.mapResponseToDomain(
-                        apiResponse.data
+    override fun getDetailItem(mediaType: String, mediaId: Int): Flow<Resource<AllData>> =
+        flow {
+            emit(Resource.loading())
+            when (val apiResponse = remoteDataSource.getItemDetail(mediaType, mediaId).first()) {
+                is ApiResponse.Success ->
+                    emit(
+                        Resource.success(
+                            DataMapper.mapResponseToDomain(
+                                apiResponse.data
+                            )
+                        )
                     )
-                )
-
-            is ApiResponse.Error -> Resource.error("error")
+                is ApiResponse.Error -> emit(Resource.error<AllData>(apiResponse.errorMessage))
+            }
         }
 
 
@@ -59,10 +62,10 @@ class MyMovieRepo @Inject constructor(
             }
         }
 
-    override fun getSumOfAllFavorite(mediaType: String): LiveData<Int> =
+    override fun getSumOfAllFavorite(mediaType: String): Flow<Int> =
         localDataSource.getSumOfAllFavorite(mediaType)
 
-    override fun isFavorite(id: Int): LiveData<Int> = localDataSource.isFavorite(id)
+    override fun isFavorite(id: Int): Flow<Int> = localDataSource.isFavorite(id)
 
     override suspend fun insertFavorite(favoriteData: FavoriteData) =
         localDataSource.insertFavorite(DataMapper.mapDomainToEntities(favoriteData))

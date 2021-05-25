@@ -1,12 +1,11 @@
 package submission.dicoding.jetpack.mymovie.core.domain.usecase
 
-import androidx.lifecycle.LiveData
 import androidx.paging.PagingData
 import kotlinx.coroutines.flow.Flow
-import submission.dicoding.jetpack.mymovie.core.data.Resource
 import submission.dicoding.jetpack.mymovie.core.domain.model.AllData
 import submission.dicoding.jetpack.mymovie.core.domain.model.FavoriteData
 import submission.dicoding.jetpack.mymovie.core.domain.repo.IMyMovieRepo
+import submission.dicoding.jetpack.mymovie.core.util.Resource
 import javax.inject.Inject
 
 class MyMovieInteractor @Inject constructor(
@@ -20,16 +19,17 @@ class MyMovieInteractor @Inject constructor(
     override fun searchAllType(
         query: String
     ): Flow<PagingData<AllData>> = iRepo.searchAllType(query)
-    override suspend fun getDetailItem(mediaType: String, mediaId: Int): Resource<AllData> =
+
+    override  fun getDetailItem(mediaType: String, mediaId: Int): Flow<Resource<AllData>> =
         iRepo.getDetailItem(mediaType, mediaId)
 
     override fun getAllFavorite(mediaType: String): Flow<PagingData<FavoriteData>> =
         iRepo.getAllFavorite(mediaType)
 
-    override fun getSumOfAllFavorite(mediaType: String): LiveData<Int> =
+    override fun getSumOfAllFavorite(mediaType: String): Flow<Int> =
         iRepo.getSumOfAllFavorite(mediaType)
 
-    override fun isFavorite(id: Int): LiveData<Int> = iRepo.isFavorite(id)
+    override fun isFavorite(id: Int): Flow<Int> = iRepo.isFavorite(id)
 
     override suspend fun insertFavorite(favoriteData: FavoriteData) =
         iRepo.insertFavorite(favoriteData)

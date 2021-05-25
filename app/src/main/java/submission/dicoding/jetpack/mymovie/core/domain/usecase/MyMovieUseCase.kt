@@ -1,11 +1,10 @@
 package submission.dicoding.jetpack.mymovie.core.domain.usecase
 
-import androidx.lifecycle.LiveData
 import androidx.paging.PagingData
 import kotlinx.coroutines.flow.Flow
-import submission.dicoding.jetpack.mymovie.core.data.Resource
 import submission.dicoding.jetpack.mymovie.core.domain.model.AllData
 import submission.dicoding.jetpack.mymovie.core.domain.model.FavoriteData
+import submission.dicoding.jetpack.mymovie.core.util.Resource
 
 interface MyMovieUseCase {
 
@@ -18,11 +17,11 @@ interface MyMovieUseCase {
         query: String
     ): Flow<PagingData<AllData>>
 
-    suspend fun getDetailItem(mediaType: String, mediaId: Int): Resource<AllData>
+    fun getDetailItem(mediaType: String, mediaId: Int): Flow<Resource<AllData>>
 
     fun getAllFavorite(mediaType: String): Flow<PagingData<FavoriteData>>
-    fun getSumOfAllFavorite(mediaType: String): LiveData<Int>
-    fun isFavorite(id: Int): LiveData<Int>
+    fun getSumOfAllFavorite(mediaType: String): Flow<Int>
+    fun isFavorite(id: Int): Flow<Int>
     suspend fun insertFavorite(favoriteData: FavoriteData)
     suspend fun deleteFavorite(favoriteData: FavoriteData)
 }

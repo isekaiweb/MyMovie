@@ -15,10 +15,10 @@ interface FavoriteDao {
     suspend fun deleteFavorite(favorite: FavoriteEntity)
 
     @Query("SELECT count(*) FROM favorite WHERE id = :id")
-    fun isFavorite(id: Int): LiveData<Int>
+    fun isFavorite(id: Int): Flow<Int>
 
     @Query("SELECT count(*) FROM favorite WHERE media_type = :mediaType")
-    fun getSumOfAllFavorite(mediaType: String): LiveData<Int>
+    fun getSumOfAllFavorite(mediaType: String): Flow<Int>
 
     @Query("SELECT * FROM favorite  WHERE media_type = :mediaType")
     fun getAllFavorite(mediaType: String): PagingSource<Int, FavoriteEntity>

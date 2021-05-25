@@ -15,6 +15,6 @@ class FavoriteViewModel @Inject constructor(
     fun getAllMovie(mediaType: String) =
         useCase.getAllFavorite(mediaType).asLiveData().cachedIn(viewModelScope)
 
-    fun getSumOfAllFavorite(mediaType: String) = useCase.getSumOfAllFavorite(mediaType)
+    fun getSumOfAllFavorite(mediaType: String) = useCase.getSumOfAllFavorite(mediaType).asLiveData()
 
 }
