@@ -9,8 +9,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import submission.dicoding.jetpack.mymovie.R
+import submission.dicoding.jetpack.mymovie.core.adapters.FavoriteAdapter
 import submission.dicoding.jetpack.mymovie.databinding.FragmentListFavoriteBinding
-import submission.dicoding.jetpack.mymovie.core.ui.adapters.FavoriteAdapter
 import submission.dicoding.jetpack.mymovie.ui.main.ListFragment
 import submission.dicoding.jetpack.mymovie.util.Function.isPortrait
 import javax.inject.Inject

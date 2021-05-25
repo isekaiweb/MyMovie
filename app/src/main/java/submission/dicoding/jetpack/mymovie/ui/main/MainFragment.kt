@@ -9,7 +9,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import submission.dicoding.jetpack.mymovie.R
 import submission.dicoding.jetpack.mymovie.databinding.FragmentMainBinding
-import submission.dicoding.jetpack.mymovie.core.ui.adapters.ViewPagerListAdapter
+
 
 @AndroidEntryPoint
 class MainFragment : Fragment(R.layout.fragment_main) {

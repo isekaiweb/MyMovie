@@ -11,8 +11,8 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import submission.dicoding.jetpack.mymovie.R
-import submission.dicoding.jetpack.mymovie.core.ui.adapters.ListAdapter
-import submission.dicoding.jetpack.mymovie.core.ui.adapters.MovieLoadStateAdapter
+import submission.dicoding.jetpack.mymovie.core.adapters.ListAdapter
+import submission.dicoding.jetpack.mymovie.core.adapters.MovieLoadStateAdapter
 import submission.dicoding.jetpack.mymovie.databinding.FragmentListBinding
 import submission.dicoding.jetpack.mymovie.util.Function.createToastNetworkError
 import javax.inject.Inject

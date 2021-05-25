@@ -9,7 +9,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import submission.dicoding.jetpack.mymovie.R
 import submission.dicoding.jetpack.mymovie.databinding.FragmentFavoriteBinding
-import submission.dicoding.jetpack.mymovie.core.ui.adapters.ViewPagerFavoriteAdapter
+
 
 @AndroidEntryPoint
 class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
