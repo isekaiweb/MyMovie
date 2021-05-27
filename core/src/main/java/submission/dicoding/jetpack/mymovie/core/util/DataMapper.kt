@@ -13,7 +13,7 @@ object DataMapper {
         title = input.title,
     )
 
-    fun mapEntitiesToDomain(input: submission.dicoding.jetpack.mymovie.core.data.source.local.entity.FavoriteEntity) =
+    fun mapEntitiesToDomain(input: FavoriteEntity) =
         FavoriteData(
             id = input.id,
             poster_path = input.poster_path,
@@ -23,7 +23,7 @@ object DataMapper {
 
 
     fun mapDomainToEntities(input: FavoriteData) =
-        submission.dicoding.jetpack.mymovie.core.data.source.local.entity.FavoriteEntity(
+        FavoriteEntity(
             id = input.id,
             poster_path = input.poster_path,
             media_type = input.media_type,

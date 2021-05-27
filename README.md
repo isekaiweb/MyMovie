@@ -72,7 +72,7 @@ API_KEY = "" -> (place your KEY API here)
         In Main Page just to display both list Movie and Series.
         i'm using ViewPager2 to split them and to make user easily can navigate between movie and series just by swiping to the left or right in here too i'm using TabLayout so user can know what's tab opened now
     </p>
-    <img src="demo/main.gif">
+    <img src="https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/main.gif">
 </div>
 
 **Detail Page**
@@ -80,7 +80,7 @@ API_KEY = "" -> (place your KEY API here)
     <p>
        here just to display all information about the movies or series user click from main page and from this page user can mark that movie or series as favorite and can easy to find the movie/series which has mark favorite
     </p>
-    <img src="demo/detail.gif">
+    <img src="https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/detail.gif">
 </div>
 
 **Favorite Page**
@@ -88,7 +88,7 @@ API_KEY = "" -> (place your KEY API here)
     <p>
        This page have 2 page like main page i use ViewPager2 and TabLayout to split both of them to make user can easily find their favorite movie or series
     </p>
-    <img src="demo/favorite.gif">
+    <img src="https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/favorite.gif">
 </div>
 
 **Search Page**
@@ -96,7 +96,7 @@ API_KEY = "" -> (place your KEY API here)
     <p>
        This the page for user to find movie or series they want to find out
     </p>
-    <img src="demo/search.gif">
+    <img src="https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/search.gif">
 </div>
 
 

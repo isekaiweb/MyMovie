@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import submission.dicoding.jetpack.mymovie.core.databinding.ListModelBinding
 import submission.dicoding.jetpack.mymovie.core.domain.model.AllData
 import submission.dicoding.jetpack.mymovie.core.util.Function.glide
-import timber.log.Timber
-import javax.inject.Singleton
 
 class ListAdapter : PagingDataAdapter<AllData, ListAdapter.ListViewHolder>(DIFF_CALLBACK) {
 

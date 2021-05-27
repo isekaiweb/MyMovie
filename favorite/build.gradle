@@ -35,5 +35,6 @@ android {
 dependencies {
     implementation project(":app")
     implementation project(":core")
+    //noinspection GradleDependency
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
