@@ -29,19 +29,19 @@ class DetailViewModelTest {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var viewmodel: DetailViewModel
+    private lateinit var viewModel: DetailViewModel
 
     @Mock
     private lateinit var observeResourceDetail: Observer<Resource<AllData>>
 
     @Before
     fun setup() {
-        viewmodel = DetailViewModel(MyMovieInteractorTest())
+        viewModel = DetailViewModel(MyMovieInteractorTest())
     }
 
     @Test
     fun `should return observer resource data from allData`() {
-        val value = viewmodel.getDetailItem("movie", 1)
+        val value = viewModel.getDetailItem("movie", 1)
 
         value.observeForever(observeResourceDetail)
         observeResourceDetail.onChanged(value.getOrAwaitValue())
@@ -51,7 +51,7 @@ class DetailViewModelTest {
 
     @Test
     fun `should return observer resource error`() {
-        val value = viewmodel.getDetailItem("movie", 2)
+        val value = viewModel.getDetailItem("movie", 2)
 
         value.observeForever(observeResourceDetail)
         observeResourceDetail.onChanged(value.getOrAwaitValue())
@@ -62,23 +62,23 @@ class DetailViewModelTest {
     @Test
     fun `should insert data to favorite`() = runBlockingTest {
         val newData = FakeData.createAllData
-        viewmodel.insertFavorite(allDataToFavorite(FakeData.createAllData))
+        viewModel.insertFavorite(allDataToFavorite(FakeData.createAllData))
 
-        val value = viewmodel.isFavorite(newData.id)
+        val value = viewModel.isFavorite(newData.id)
         assertThat(value.getOrAwaitValue()).isEqualTo(1)
     }
 
     @Test
     fun `should remove data from favorite`() = runBlockingTest {
         val newData = FakeData.createAllData
-        viewmodel.insertFavorite(allDataToFavorite(FakeData.createAllData))
+        viewModel.insertFavorite(allDataToFavorite(FakeData.createAllData))
 
-        val valueBefore = viewmodel.isFavorite(newData.id)
+        val valueBefore = viewModel.isFavorite(newData.id)
         assertThat(valueBefore.getOrAwaitValue()).isEqualTo(1)
 
-        viewmodel.deleteFavorite(allDataToFavorite(newData))
+        viewModel.deleteFavorite(allDataToFavorite(newData))
 
-        val valueAfter = viewmodel.isFavorite(newData.id)
+        val valueAfter = viewModel.isFavorite(newData.id)
         assertThat(valueAfter.getOrAwaitValue()).isEqualTo(0)
     }
 

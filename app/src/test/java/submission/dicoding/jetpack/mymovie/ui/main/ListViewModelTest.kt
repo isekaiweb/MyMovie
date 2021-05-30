@@ -26,19 +26,19 @@ class ListViewModelTest {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private lateinit var viewmodel: ListViewModel
+    private lateinit var viewModel: ListViewModel
 
     @Mock
     private lateinit var observe: Observer<PagingData<AllData>>
 
     @Before
     fun setup() {
-        viewmodel = ListViewModel(MyMovieInteractorTest())
+        viewModel = ListViewModel(MyMovieInteractorTest())
     }
 
     @Test
     fun `should return observe pagingData`() {
-        val value = viewmodel.getAllList("movie", "on_airing")
+        val value = viewModel.getAllList("movie", "on_airing")
 
         value.observeForever(observe)
         observe.onChanged(value.getOrAwaitValue())
