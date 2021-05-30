@@ -22,10 +22,10 @@ android {
     }
 
 
-    lintOptions {
-        abortOnError false
-        checkReleaseBuilds false
-    }
+//    lintOptions {
+//        abortOnError false
+//        checkReleaseBuilds false
+//    }
 
 
     buildTypes {
@@ -33,10 +33,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        debug {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+//        debug {
+//            minifyEnabled true
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
