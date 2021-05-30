@@ -37,15 +37,15 @@ object Function {
     fun Fragment.isPortrait() =
         resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 
-    fun EditText.hideKeyboard(): Boolean {
-        return (context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager)
+    fun EditText.hideKeyboard() =
+         (context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager)
             .hideSoftInputFromWindow(windowToken, 0)
-    }
 
-    fun EditText.showKeyboard(): Boolean {
-        return (context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager)
+
+    fun EditText.showKeyboard()=
+         (context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager)
             .showSoftInput(this, 0)
-    }
+
 
     fun setOnPressEnter(
         editText: EditText,

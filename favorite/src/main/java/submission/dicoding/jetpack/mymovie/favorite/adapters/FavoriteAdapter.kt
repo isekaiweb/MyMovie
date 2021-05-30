@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import submission.dicoding.jetpack.mymovie.core.databinding.FavoriteModelBinding
 import submission.dicoding.jetpack.mymovie.core.domain.model.FavoriteData
 import submission.dicoding.jetpack.mymovie.core.util.Function.glide
+import submission.dicoding.jetpack.mymovie.favorite.databinding.FavoriteModelBinding
 
 class FavoriteAdapter :
     PagingDataAdapter<FavoriteData, FavoriteAdapter.FavoriteViewHolder>(DIFF_CALLBACK) {

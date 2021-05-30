@@ -1,3 +1,5 @@
+@file:Suppress("RemoveExplicitTypeArguments")
+
 package submission.dicoding.jetpack.mymovie.core.data
 
 import androidx.paging.PagingData
