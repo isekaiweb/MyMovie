@@ -19,10 +19,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    lintOptions {
-        abortOnError false
-        checkReleaseBuilds false
-    }
 
     buildTypes {
         release {

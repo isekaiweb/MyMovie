@@ -12,6 +12,10 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
+    lintOptions {
+        abortOnError false
+    }
+
     defaultConfig {
         applicationId "submission.dicoding.jetpack.mymovie"
         minSdkVersion 21
@@ -23,10 +27,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    lintOptions {
-        abortOnError false
-        checkReleaseBuilds false
-    }
+
 
     buildTypes {
         release {
