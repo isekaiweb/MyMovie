@@ -1,4 +1,4 @@
 include ':app'
-rootProject.name = "MyMovie"
 include ':core'
 include ':favorite'
+rootProject.name = "MyMovie"

@@ -1,3 +1,5 @@
+@file:Suppress("RemoveExplicitTypeArguments")
+
 package submission.dicoding.jetpack.mymovie.usecase
 
 import androidx.paging.Pager

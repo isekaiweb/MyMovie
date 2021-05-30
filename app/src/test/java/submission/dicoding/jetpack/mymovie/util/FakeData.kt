@@ -9,6 +9,6 @@ object FakeData {
         title = "Mortal Kombat",
         media_type = "movie",
         date = "22 february 2021",
-        overview = "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe"
+        overview = "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of out world in a high stakes battle for the universe"
     )
 }

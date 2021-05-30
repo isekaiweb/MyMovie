@@ -53,7 +53,6 @@ android {
 
 dependencies {
     implementation project(":core")
-    testImplementation project(":core")
     //noinspection GradleDependency
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "com.google.android.play:core:1.10.0"

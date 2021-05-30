@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">My Movie</string>
 
-    <string name="error">couldn\'t loaded …</string>
-    <string name="retry">Retry</string>
+
     <string name="reload">reload</string>
 
 
@@ -12,8 +11,6 @@
     <string name="emptyBook">empty bookmark</string>
     <string name="titleFavorite">My Favorite</string>
     <string name="back">back</string>
-    <string name="movie">movie</string>
-    <string name="arrow_down">arrow_down</string>
     <string name="search_movie">search movie</string>
     <string name="not_found">not found</string>
     <string-array name="media_type">

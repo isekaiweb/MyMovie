@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import submission.dicoding.jetpack.mymovie.core.domain.model.AllData
 import submission.dicoding.jetpack.mymovie.core.domain.model.FavoriteData
-import submission.dicoding.jetpack.mymovie.util.FakeData
 
 class FakePagingSourceAllData : PagingSource<Int, AllData>() {
     private val data = mutableListOf(FakeData.createAllData)

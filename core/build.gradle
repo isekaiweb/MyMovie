@@ -77,5 +77,4 @@ dependencies {
 
     // Activity KTX for viewModels()
     api "androidx.activity:activity-ktx:1.2.3"
-
 }
