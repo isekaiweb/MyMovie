@@ -12,7 +12,6 @@
     <string name="titleFavorite">My Favorite</string>
     <string name="back">back</string>
     <string name="search_movie">search movie</string>
-    <string name="not_found">not found</string>
     <string-array name="media_type">
         <item>movie</item>
         <item>tv</item>
