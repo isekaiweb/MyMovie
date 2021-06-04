@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.secrets_gradle_plugin' version "0.6"
 }
 
 apply from: '../shared_dependencies.gradle'
@@ -41,6 +42,11 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    secrets {
+        propertiesFileName 'secrets.properties'
+        defaultPropertiesFileName = 'secrets.defaults.properties'
+    }
 }
 
 dependencies {
@@ -76,7 +82,6 @@ dependencies {
 
     // Activity KTX for viewModels()
     api "androidx.activity:activity-ktx:1.2.3"
-
 
     implementation "net.zetetic:android-database-sqlcipher:4.4.3"
     implementation "androidx.sqlite:sqlite-ktx:2.1.0"
