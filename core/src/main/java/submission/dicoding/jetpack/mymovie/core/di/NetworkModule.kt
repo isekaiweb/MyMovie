@@ -1,3 +1,8 @@
+@file:Suppress("SpellCheckingInspection", "SpellCheckingInspection", "SpellCheckingInspection",
+    "SpellCheckingInspection", "SpellCheckingInspection", "SpellCheckingInspection",
+    "SpellCheckingInspection", "SpellCheckingInspection"
+)
+
 package submission.dicoding.jetpack.mymovie.core.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
