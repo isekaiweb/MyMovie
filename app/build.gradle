@@ -27,6 +27,12 @@ android {
     lintOptions {
         abortOnError false
         checkReleaseBuilds false
+        quiet true
+      
+
+        disable 'TypographyFractions','TypographyQuotes'
+        enable 'RtlHardcoded','RtlCompat', 'RtlEnabled'
+        check 'NewApi', 'InlinedApi'
     }
 
 
