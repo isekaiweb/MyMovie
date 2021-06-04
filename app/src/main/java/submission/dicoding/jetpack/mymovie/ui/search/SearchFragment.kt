@@ -160,8 +160,9 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         }
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
+        binding?.root?.removeAllViews()
         _binding = null
-        super.onDestroy()
+        super.onDestroyView()
     }
 }

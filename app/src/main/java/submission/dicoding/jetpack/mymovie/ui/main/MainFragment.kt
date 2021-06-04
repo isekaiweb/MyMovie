@@ -80,8 +80,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         }
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
+        binding?.root?.removeAllViews()
         _binding = null
-        super.onDestroy()
+        super.onDestroyView()
     }
 }

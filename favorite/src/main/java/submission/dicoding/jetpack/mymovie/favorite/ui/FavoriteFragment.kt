@@ -97,8 +97,9 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
         }
     }
 
-    override fun onDestroy() {
+    override fun onDestroyView() {
+        binding?.root?.removeAllViews()
         _binding = null
-        super.onDestroy()
+        super.onDestroyView()
     }
 }
