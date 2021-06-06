@@ -1,22 +1,16 @@
-# Final submission Dicoding Academy Android Jetpack Pro
-This is an app i created for accomplish task from [Dicoding](https://www.dicoding.com/) on subject [BAJP](https://www.dicoding.com/academies/129) and i got 5 star of 5 you can see my certificate [here](https://www.dicoding.com/certificates/ERZR5V5QOPYV), by the way if you found my project because you wanted to accomplish your final task from **Dicoding** also please use this as reference do not copy all of the code or it'll be counted as **Plagiarism**
+# Submission 1 Dicoding Academy Become Android Developer Expert
+This is an app i created for accomplish task from [Dicoding](https://www.dicoding.com/) on subject [MADE](https://www.dicoding.com/academies/165) and i got 5 star of 5 you can see my certificate [here](https://www.dicoding.com/certificates/1OP8DK50LPQK), by the way if you found my project because you wanted to accomplish your final task from **Dicoding** also please use this as reference do not copy all of the code or it'll be counted as **Plagiarism**
 
-### Previous submission you can see here 
-- [submission 1](https://github.com/isekaiweb/MyMovie/tree/submission_1)
-- [submission 2](https://github.com/isekaiweb/MyMovie/tree/submission_2)
+### Another Capstone you can see here 
+- [Final Submission](https://github.com/isekaiweb/MyMovie/tree/submission_1_MADE)
 
 ## Attention ⚠
 i'm using TMDb API here hence you need to create your own KEY API first to running this code properly, you can visit [here](https://www.themoviedb.org/login) to create your account first and go to settings click to API [here](https://www.themoviedb.org/settings/api)
 
-### After you get KEY API, you must create one more thing
-click on your file, select new file and named **gradle.properties**
-and the add this all code inside the file :
+### After you get KEY API
 ```
-org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
-android.useAndroidX=true
-android.enableJetifier=true
-kotlin.code.style=official
-API_KEY = "" -> (place your KEY API here)
+on your local.properties create variable : 
+API_KEY = "{place your api key here}" 
 ```
 
 ## End Point
@@ -27,28 +21,25 @@ API_KEY = "" -> (place your KEY API here)
 - Search : [/search/multi](https://developers.themoviedb.org/3/search/multi-search)
 
 ## This is what i have to do to accomplish the task
-**Main Page**
-- Have 2 page to display both list Movie and Series
-- implementing ViewModel, LiveData and Repository to collect data Movies and Series 
+**Create 3 Main Feature**
+- You Free to decide what's Themes or APIs you use
+- There are must have page list item page, detail item, and list favorite (use it database)
+- All Feature can work properly without any force close
 
-**Detail Page**
-- display poster and movies information
-- implementing ViewModel to collect data from Main Page
+**Implementing Modularization**
+- Create 1 Android Library for core and 1 dynamic feature for favorite
 
-**Favorite Page**
-- can store movie to database
-- can remove movie from database
-- must have a page to display list Favorite movies
-- must have a page to display list Favorite series
-- Implementing Room to store both data Movie and Series
-- Implementing Pagination to organize data on RecyclerView
+**Implementing Clean Architecture**
+- Not Violate Dependency rule and Clean Architecture
+- Separating model for domain with model for data (separation model)
 
-**Unit Test**
-- Implementing unit test to all of Function in Repository and ViewModel to Collect the Data
+**Implementing Dependency Injection**
+- Must use library Dependency Injection like: Dagger/Hilt/Koin/Kodein (Choose One)
+- Implementing Injection correctly for all Functionality
 
-**Instrumentation Tests**
-- Implementing Instrumentation test to make sure all features can work properly
-- If there are have *asynchronous* process then it's mandatory to implementing *Idle Resources*
+**Implementing Reactive Programming**
+- You can use Rx/Flow (Choose one)
+- Implement properly to retrieve data from network and database
 
 ## Tools
 - [Lifecycle & LiveData](https://developer.android.com/jetpack/androidx/releases/lifecycle)
@@ -64,40 +55,36 @@ API_KEY = "" -> (place your KEY API here)
 -[ViewPager2](https://developer.android.com/jetpack/androidx/releases/viewpager2?hl=id)
 - [Kotlin Coroutines Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
 - [Truth](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)
+- [Flow](https://developer.android.com/kotlin/flow)
+- [Clean Architecture MVVM](https://www.toptal.com/android/android-apps-mvvm-with-clean-architecture)
+- [Secrets Gradle](https://github.com/google/secrets-gradle-plugin)
 
 ## Features
 **Main Page**
-<div>
-    <p>
-        In Main Page just to display both list Movie and Series.
-        i'm using ViewPager2 to split them and to make user easily can navigate between movie and series just by swiping to the left or right in here too i'm using TabLayout so user can know what's tab opened now
-    </p>
-    <img src="https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/main.gif">
-</div>
+
+In Main Page just to display both list Movie and Series.
+i'm using ViewPager2 to split them and to make user easily can navigate between movie and series just by swiping to the left or right in here too i'm using TabLayout so user can know what's tab opened now
+
+![Main Page](https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/main.gif)
+
 
 **Detail Page**
-<div>
-    <p>
-       here just to display all information about the movies or series user click from main page and from this page user can mark that movie or series as favorite and can easy to find the movie/series which has mark favorite
-    </p>
-    <img src="https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/detail.gif">
-</div>
+
+here just to display all information about the movies or series user click from main page and from this page user can mark that movie or series as favorite and can easy to find the movie/series which has mark favorite
+
+![Detail Page](https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/detail.gif)
+
 
 **Favorite Page**
-<div>
-    <p>
-       This page have 2 page like main page i use ViewPager2 and TabLayout to split both of them to make user can easily find their favorite movie or series
-    </p>
-    <img src="https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/favorite.gif">
-</div>
+
+This page have 2 page like main page i use ViewPager2 and TabLayout to split both of them to make user can easily find their favorite movie or series
+
+![Favorite Page](https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/favorite.gif)
 
 **Search Page**
-<div>
-    <p>
-       This the page for user to find movie or series they want to find out
-    </p>
-    <img src="https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/search.gif">
-</div>
 
+ This the page for user to find movie or series they want to find out
+ 
+![Favorite Page](https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/search.gif)
 
 
