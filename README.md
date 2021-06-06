@@ -85,6 +85,6 @@ This page have 2 page like main page i use ViewPager2 and TabLayout to split bot
 
  This the page for user to find movie or series they want to find out
  
-![Favorite Page](https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/search.gif)
+![Search Page](https://github.com/isekaiweb/MyMovie/blob/submission_3/demo/search.gif)
 
 
